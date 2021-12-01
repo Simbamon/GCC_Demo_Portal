@@ -129,10 +129,10 @@ export const CatalogPicture = styled.img`
     max-width: 90%;
     min-height: 150px;
     max-height: 150px;
-    
-    &:hover {
+
+    ${CatalogItem}:hover & {
         transition: all 0.3s ease-out;
-        max-width: 100%;
+        transform: scale(1.1);
     }
 `
 

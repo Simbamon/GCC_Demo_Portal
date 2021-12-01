@@ -107,7 +107,7 @@ export class Asset_list extends Component {
                         </FilterBox>
                     </AssetListTop>
 
-                    {this.state.asset_list_info.map(info => info.name === "SK 실트론 고객 품질 데이터" ? (
+                    {this.state.asset_list_info.map(info => info.name === "마케팅이력 데이터" ? (
                             <div>
                             <AssetListTable>
                                     <tbody>
