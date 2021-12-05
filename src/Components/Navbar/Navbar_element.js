@@ -45,8 +45,8 @@ export const ProfilePic = styled.div`
 export const LogoPic = styled.div`
     background-image: url(${props => props.img});
     background-size: contain;
-    width: 60px;
-    height: 28px;
+    width: 45px;
+    height: 19px;
     text-decoration: none;
     cursor: pointer;
     margin-left: 10px;

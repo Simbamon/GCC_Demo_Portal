@@ -14,7 +14,7 @@ export class Navbar extends Component {
                     <Link to="/dashboard" style={{ textDecoration: 'none' }}>
                         <NavLink >
                             <LogoPic img = {require('../../images/logo.png').default} alt='Logo'></LogoPic>
-                            <h3 style = {{color: "#d6691e", marginLeft: "7px"}}>데이터 분석 플랫폼</h3>
+                            <h3 style = {{color: "#1c5c9c", marginLeft: "2px"}}>데이터 분석 플랫폼</h3>
                         </NavLink>
                     </Link>
 
