@@ -30,9 +30,9 @@ export class Client1 extends Component {
 
     async componentDidMount() {
         
-        const catalog_info_response = await fetch('/getcataloginfo')
+        const catalog_info_response = await fetch('/wkc/getcataloginfo')
         const catalog_info = await catalog_info_response.json()
-        const meta_response = await fetch('/getassetmeta')
+        const meta_response = await fetch('/wkc/getassetmeta')
         const data_meta = await meta_response.json()
         
         const catalog_name = catalog_info.entity.name
@@ -96,7 +96,7 @@ export class Client1 extends Component {
 
         this.setState({table_info: result})
 
-        const connection_response = await fetch('/getconnection')
+        const connection_response = await fetch('/wkc/getconnection')
         const data_connection = await connection_response.json()
         const connection_source = data_connection.entity
         const connection_source_type = data_connection.entity.properties
@@ -104,7 +104,7 @@ export class Client1 extends Component {
                         connection_source_type: connection_source_type})
         
 
-        const review_response= await fetch('/getassetreview')
+        const review_response= await fetch('/wkc/getassetreview')
         const data = await review_response.json()
         const review_array = await data.resources
         
@@ -134,7 +134,7 @@ export class Client1 extends Component {
         this.setState({reviews: review_package})
         // console.log(review_package)
 
-        // const data_preview_info = await fetch('/getassetdata')
+        // const data_preview_info = await fetch('/wkc/getassetdata')
         // const data_asset_preview = await data_preview_info.json()
         // console.log(data_asset_preview)
     

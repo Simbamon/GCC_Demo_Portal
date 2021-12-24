@@ -18,9 +18,9 @@ export class Asset_list extends Component {
     }
 
     async componentDidMount() {
-        const catalog_info_response = await fetch('/getcataloginfo')
+        const catalog_info_response = await fetch('/wkc/getcataloginfo')
         const catalog_info = await catalog_info_response.json()
-        const meta_response = await fetch('/getassetlistbyreview')
+        const meta_response = await fetch('/wkc/getassetlistbyreview')
         const data_meta = await meta_response.json()
         const data_meta_array = data_meta.results
         const catalog_name = catalog_info.entity.name

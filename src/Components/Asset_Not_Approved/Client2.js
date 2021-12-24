@@ -30,9 +30,9 @@ export class Client2 extends Component {
 
     async componentDidMount() {
         
-        const catalog_info_response = await fetch('/getcataloginfo')
+        const catalog_info_response = await fetch('/wkc/getcataloginfo')
         const catalog_info = await catalog_info_response.json()
-        const meta_response = await fetch('/getassetmeta2')
+        const meta_response = await fetch('/wkc/getassetmeta2')
         const data_meta = await meta_response.json()
         
         const catalog_name = catalog_info.entity.name
