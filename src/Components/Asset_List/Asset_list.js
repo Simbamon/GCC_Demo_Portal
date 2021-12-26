@@ -18,9 +18,23 @@ export class Asset_list extends Component {
     }
 
     async componentDidMount() {
-        const catalog_info_response = await fetch('/wkc/getcataloginfo')
+        const get_token = await fetch('/wkc/token')
+        const received_token = await get_token.json()
+        const wkc_token = received_token.token
+
+        const data = { token: wkc_token }
+        console.log(data)
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+
+        const catalog_info_response = await fetch('/wkc/getcataloginfo', options)
         const catalog_info = await catalog_info_response.json()
-        const meta_response = await fetch('/wkc/getassetlistbyreview')
+        const meta_response = await fetch('/wkc/getassetlistbyreview', options)
         const data_meta = await meta_response.json()
         const data_meta_array = data_meta.results
         const catalog_name = catalog_info.entity.name
@@ -65,7 +79,6 @@ export class Asset_list extends Component {
                        total_number_of_asset: result.length,
                        catalog_name: catalog_name
         })
-        console.log("Asdf")
         console.log(result)
         console.log("Number of array: " + result.length)
     }
