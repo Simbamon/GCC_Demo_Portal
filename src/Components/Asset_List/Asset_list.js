@@ -22,14 +22,13 @@ export class Asset_list extends Component {
         const received_token = await get_token.json()
         const wkc_token = received_token.token
 
-        const data = { token: wkc_token }
-        console.log(data)
+        const wkc_token_data = { token: wkc_token }
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(wkc_token_data)
         }
 
         const catalog_info_response = await fetch('/wkc/getcataloginfo', options)

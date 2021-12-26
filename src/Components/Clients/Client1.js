@@ -29,10 +29,22 @@ export class Client1 extends Component {
     }
 
     async componentDidMount() {
-        
-        const catalog_info_response = await fetch('/wkc/getcataloginfo')
+        const get_token = await fetch('/wkc/token')
+        const received_token = await get_token.json()
+        const wkc_token = received_token.token
+
+        const wkc_token_data = { token: wkc_token }
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(wkc_token_data)
+        }
+
+        const catalog_info_response = await fetch('/wkc/getcataloginfo', options)
         const catalog_info = await catalog_info_response.json()
-        const meta_response = await fetch('/wkc/getassetmeta')
+        const meta_response = await fetch('/wkc/getassetmeta', options)
         const data_meta = await meta_response.json()
         
         const catalog_name = catalog_info.entity.name
@@ -96,15 +108,16 @@ export class Client1 extends Component {
 
         this.setState({table_info: result})
 
-        const connection_response = await fetch('/wkc/getconnection')
-        const data_connection = await connection_response.json()
-        const connection_source = data_connection.entity
-        const connection_source_type = data_connection.entity.properties
-        this.setState({ connection_source: connection_source,
-                        connection_source_type: connection_source_type})
+        //This is to get database connection
+        // const connection_response = await fetch('/wkc/getconnection', options)
+        // const data_connection = await connection_response.json()
+        // const connection_source = data_connection.entity
+        // const connection_source_type = data_connection.entity.properties
+        this.setState({ connection_source: {"name": "Data Virtualization"},
+                        connection_source_type: {"database": "DV"}})
         
 
-        const review_response= await fetch('/wkc/getassetreview')
+        const review_response= await fetch('/wkc/getassetreview', options)
         const data = await review_response.json()
         const review_array = await data.resources
         
@@ -133,7 +146,6 @@ export class Client1 extends Component {
         // console.log(asset_meta)
         this.setState({reviews: review_package})
         // console.log(review_package)
-
         // const data_preview_info = await fetch('/wkc/getassetdata')
         // const data_asset_preview = await data_preview_info.json()
         // console.log(data_asset_preview)
