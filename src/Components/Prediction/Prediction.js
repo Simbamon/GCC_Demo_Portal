@@ -7,7 +7,14 @@ export class Prediction extends Component {
         const resp = await test.json()
         const cp4d_token = resp.access_token
         
-        const data = { token: cp4d_token, url: "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/fe6b47dd-4885-48e3-be56-2785fc819317/predictions?version=2021-12-24" }
+        const payload = await fetch('/watsonml/payload/?61c99e898d076e238a96c763')
+        const payload_response = await payload.json()
+        
+
+        const data = { token: cp4d_token, 
+                       url: "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/fe6b47dd-4885-48e3-be56-2785fc819317/predictions?version=2021-12-24",
+                       input_data: payload_response
+                     }
         console.log(data)
         const options = {
             method: 'POST',
