@@ -22,18 +22,20 @@ export class Asset_list extends Component {
         const received_token = await get_token.json()
         const wkc_token = received_token.token
 
-        const wkc_token_data = { token: wkc_token }
+        const wkc_data = { 
+                            token: wkc_token
+                         }
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(wkc_token_data)
+            body: JSON.stringify(wkc_data)
         }
 
-        const catalog_info_response = await fetch('/wkc/getcataloginfo', options)
+        const catalog_info_response = await fetch('/wkc/getcataloginfo/64c25f35-eefb-4172-b6c3-38d8492fb4bb', options)
         const catalog_info = await catalog_info_response.json()
-        const meta_response = await fetch('/wkc/getassetlistbyreview', options)
+        const meta_response = await fetch('/wkc/getassetlistbyreview/64c25f35-eefb-4172-b6c3-38d8492fb4bb', options)
         const data_meta = await meta_response.json()
         const data_meta_array = data_meta.results
         const catalog_name = catalog_info.entity.name

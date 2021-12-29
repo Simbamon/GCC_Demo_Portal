@@ -33,13 +33,17 @@ export class Client1 extends Component {
         const received_token = await get_token.json()
         const wkc_token = received_token.token
 
-        const wkc_token_data = { token: wkc_token }
+        const wkc_data = { 
+                            token: wkc_token, 
+                            catalog_id: "64c25f35-eefb-4172-b6c3-38d8492fb4bb",
+                            asset_id: "85bdfaed-d1c3-4d27-b508-696a72dbc732"
+                         }
         const options = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(wkc_token_data)
+            body: JSON.stringify(wkc_data)
         }
 
         const catalog_info_response = await fetch('/wkc/getcataloginfo', options)
