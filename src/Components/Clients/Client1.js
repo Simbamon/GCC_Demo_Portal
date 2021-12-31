@@ -46,7 +46,7 @@ export class Client1 extends Component {
             body: JSON.stringify(wkc_data)
         }
 
-        const catalog_info_response = await fetch('/wkc/getcataloginfo', options)
+        const catalog_info_response = await fetch('/wkc/getcataloginfo/64c25f35-eefb-4172-b6c3-38d8492fb4bb', options)
         const catalog_info = await catalog_info_response.json()
         const meta_response = await fetch('/wkc/getassetmeta', options)
         const data_meta = await meta_response.json()

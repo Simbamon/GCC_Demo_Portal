@@ -5,12 +5,12 @@ import Prediction from './Components/Prediction/Prediction'
 import Client1 from './Components/Clients/Client1'
 import Client2 from './Components/Asset_Not_Approved/Client2'
 import Asset_list from './Components/Asset_List/Asset_list'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, HashRouter } from 'react-router-dom'
 import './App.css';
 
 function App() {
   return (
-    <Router>
+    <HashRouter hashType="slash">
       <Navbar />
       <div className="mainScreen">
         <Sidebar />
@@ -23,7 +23,7 @@ function App() {
         </div>
       </div>
       
-    </Router>
+    </HashRouter>
   );
 }
 
