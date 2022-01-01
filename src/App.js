@@ -10,6 +10,7 @@ import './App.css';
 
 function App() {
   return (
+    // <Router></Router>  <- For Local testing
     <HashRouter hashType="slash">
       <Navbar />
       <div className="mainScreen">
