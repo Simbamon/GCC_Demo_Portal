@@ -59,6 +59,7 @@ export const DashboardTable = styled.table`
     text-align: left;
     font-size: 0.85rem;
     height: 100%;
+    min-height: 380px;
     width: 100%;
     display: table;
     margin-top: 15px;
@@ -112,11 +113,13 @@ export const DashboardTable = styled.table`
 
 export const CatalogWrapper = styled.div`
     display: flex;
+    flex-wrap: wrap;
     margin-bottom :5px;
 `
 
 export const CatalogItem = styled.div`
     border: solid black;
+    flex: 1;
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
@@ -202,6 +205,7 @@ export const PieChart = styled.table`
     text-align: left;
     font-size: 0.85rem;
     height: 100%;
+    min-height: 380px;
     width: 100%;
     display: table;
     table-layout: fixed;
@@ -263,9 +267,10 @@ export const BarGraph = styled.table`
         padding: 5px 0 5px 20px;
         line-height: 45px;
     }
-    th {
+    thead {
         padding: 5px 20px;
         height: 210px;
+        
     }
     td  {
         display: flex;
