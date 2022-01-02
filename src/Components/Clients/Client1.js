@@ -121,34 +121,34 @@ export class Client1 extends Component {
                         connection_source_type: {"database": "DV"}})
         
 
-        const review_response= await fetch('/wkc/getassetreview', options)
-        const data = await review_response.json()
-        const review_array = await data.resources
+        // const review_response= await fetch('/wkc/getassetreview', options)
+        // const data = await review_response.json()
+        // const review_array = await data.resources
         
-        const review_package = []
+        // const review_package = []
 
-        for(var i = 0; i < review_array.length; i++){
-            try {
-                const rating = review_array[i].entity.rating
-                const review = review_array[i].entity.review
-                const time_data = new Date(review_array[i].metadata.updated_at)
-                const time = time_data.getFullYear() + "년 " +
-                             (time_data.getMonth() + 1) + "월 " +
-                             time_data.getDate() + "일"
-                const obj = {
-                    rating: rating,
-                    review: review,
-                    time: time
-                }
-                review_package.push(obj)
+        // for(var i = 0; i < review_array.length; i++){
+        //     try {
+        //         const rating = review_array[i].entity.rating
+        //         const review = review_array[i].entity.review
+        //         const time_data = new Date(review_array[i].metadata.updated_at)
+        //         const time = time_data.getFullYear() + "년 " +
+        //                      (time_data.getMonth() + 1) + "월 " +
+        //                      time_data.getDate() + "일"
+        //         const obj = {
+        //             rating: rating,
+        //             review: review,
+        //             time: time
+        //         }
+        //         review_package.push(obj)
                 
-            } catch (error) {
-                // console.log(error)
-            }
-        }
+        //     } catch (error) {
+        //         // console.log(error)
+        //     }
+        // }
 
         // console.log(asset_meta)
-        this.setState({reviews: review_package})
+        // this.setState({reviews: review_package})
         // console.log(review_package)
         // const data_preview_info = await fetch('/wkc/getassetdata')
         // const data_asset_preview = await data_preview_info.json()

@@ -267,10 +267,9 @@ export const BarGraph = styled.table`
         padding: 5px 0 5px 20px;
         line-height: 45px;
     }
-    thead {
+    th {
         padding: 5px 20px;
         height: 210px;
-        
     }
     td  {
         display: flex;
