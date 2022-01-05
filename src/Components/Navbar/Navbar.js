@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Nav, NavLink, NavMenu, ProfilePic, LogoPic, Profile, ProfileName } from './Navbar_element'
+import {Nav, NavLink, NavMenu, ProfilePic, LogoPic, Profile, ProfileName, NavTitle } from './Navbar_element'
 import { Email, NotificationsNoneOutlined, ExpandMore, Search } from '@material-ui/icons'
 import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
@@ -14,7 +14,7 @@ export class Navbar extends Component {
                     <Link to="/dashboard" style={{ textDecoration: 'none' }}>
                         <NavLink >
                             <LogoPic img = {require('../../images/logo.png').default} alt='Logo'></LogoPic>
-                            <h3 style = {{color: "#1c5c9c", marginLeft: "2px"}}>데이터 분석 플랫폼</h3>
+                            <NavTitle>데이터 분석 플랫폼</NavTitle>
                         </NavLink>
                     </Link>
 

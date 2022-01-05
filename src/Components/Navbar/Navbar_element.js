@@ -18,6 +18,15 @@ export const NavLink = styled.div `
     cursor: pointer;
 `
 
+export const NavTitle = styled.h3 `
+    margin-left: 5px;
+    color: #1c5c9c;
+    line-height: 22px;
+    @media screen and (max-width: 991px) {
+        font-size: 1.1rem;
+    }
+`
+
 export const NavMenu = styled.div`
     display: flex;
     align-items: center;
@@ -50,6 +59,10 @@ export const LogoPic = styled.div`
     text-decoration: none;
     cursor: pointer;
     margin-left: 10px;
+    @media screen and (max-width: 991px) {
+        width: 48px;
+        height: 22px;
+    }
 `
 
 export const ProfileName = styled.div`
