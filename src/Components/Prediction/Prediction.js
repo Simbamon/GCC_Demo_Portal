@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { PredictionWrap, PredictionTitle, ContentsWrap, PredicitionProfileWrap, PredicitionInfoWrap, PredicitionAIWrap,
-    ProfileBox, ProfilePic, PredictionTable, TableInfo } from './Prediction_element'
+    ProfileBox, ProfilePic, PredictionTable, TableInfo, TableAdjust } from './Prediction_element'
 
 export class Prediction extends Component {
     
@@ -88,11 +88,36 @@ export class Prediction extends Component {
                                 <tbody >
                                     <tr>
                                         <td>
-                                            <TableInfo>aasdfadsf</TableInfo>
-                                            <TableInfo>aadsfadsfds</TableInfo>
-                                            <TableInfo>aadsfadsfa</TableInfo>
-                                            <TableInfo>aasdfadsf</TableInfo>
-                                            <TableInfo>aasdfdsaf</TableInfo>
+                                            <TableInfo>
+                                                <TableAdjust>
+                                                    <p style={{color: "grey", fontSize: "0.75rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Checking Status</p>
+                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>No Checking</p>
+                                                </TableAdjust> 
+                                            </TableInfo>
+                                            <TableInfo>
+                                                <TableAdjust>
+                                                    <p style={{color: "grey", fontSize: "0.75rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Loan Purpose</p>
+                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>No Checking</p>
+                                                </TableAdjust> 
+                                            </TableInfo>
+                                            <TableInfo>
+                                                <TableAdjust>
+                                                    <p style={{color: "grey", fontSize: "0.75rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Loan Duration</p>
+                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>No Checking</p>
+                                                </TableAdjust> 
+                                            </TableInfo>
+                                            <TableInfo>
+                                                <TableAdjust>
+                                                    <p style={{color: "grey", fontSize: "0.75rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Installment Percentage</p>
+                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>No Checking</p>
+                                                </TableAdjust> 
+                                            </TableInfo>
+                                            <TableInfo style={{borderRight:"none"}}>
+                                                <TableAdjust>
+                                                    <p style={{color: "grey", fontSize: "0.75rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Installment Plans</p>
+                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>No Checking</p>
+                                                </TableAdjust> 
+                                            </TableInfo>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -109,27 +134,27 @@ export class Prediction extends Component {
                                             <TableInfo>
                                                 <div style={{textAlign: "center" }}>
                                                     <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "0.9rem", paddingBottom: "20px"}}>Checking Status</p>
-                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>No Checking</p>
+                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem", wordBreak: "break-all"}}>No Checking</p>
                                                 </div>                                                
                                             </TableInfo>
                                             <TableInfo></TableInfo>
                                             <TableInfo></TableInfo>
                                             <TableInfo></TableInfo>
-                                            <TableInfo></TableInfo>
+                                            <TableInfo style={{borderRight: "none"}}></TableInfo>
                                         </td>
                                         <td>
                                             <TableInfo>aasdfadsf</TableInfo>
                                             <TableInfo>aadsfadsfds</TableInfo>
                                             <TableInfo>aadsfadsfa</TableInfo>
                                             <TableInfo>aasdfadsf</TableInfo>
-                                            <TableInfo>aasdfdsaf</TableInfo>
+                                            <TableInfo style={{borderRight: "none"}}>aasdfdsaf</TableInfo>
                                         </td>
                                         <td>
                                             <TableInfo>aasdfadsf</TableInfo>
                                             <TableInfo>aadsfadsfds</TableInfo>
                                             <TableInfo>aadsfadsfa</TableInfo>
                                             <TableInfo>aasdfadsf</TableInfo>
-                                            <TableInfo>aasdfdsaf</TableInfo>
+                                            <TableInfo style={{borderRight: "none"}}>aasdfdsaf</TableInfo>
                                         </td>
                                     </tr>
                                 </tbody>

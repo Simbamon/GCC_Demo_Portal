@@ -74,17 +74,19 @@ export const PredictionTable = styled.table`
     border-collapse: separate;
     border-spacing: 0;
     box-shadow: 13px 15px 55px -13px rgba(0,0,0,0.26);
+    border: 0.1rem solid #c5d5d7;
 
+    thead {
+    }
     thead tr{
         color: black;
         font-weight: bold;
-        border: 30px;
     }
     thead tr th {
         display: inline;
         font-size: 1.1rem;
         font-weight: bold;
-        line-height: 40px;
+        line-height: 45px;
         padding: 5px 0 5px 20px;
     }
     tbody tr td  {
@@ -97,16 +99,34 @@ export const PredictionTable = styled.table`
 export const TableInfo = styled.div`
     height: 150px;
     flex:1 0 18%;
-    min-width: 180px;
-    border: 0.1rem solid #c5d5d7;
+    border-top: 0.1rem solid #c5d5d7;
+    width: calc(100%/5);
+    display: table-cell;
+    vertical-align: middle;
+    white-space:normal;
+    border-right: 0.1rem solid #c5d5d7;
     @media screen and (max-width: 1080px) {
         flex: 1;
-        width: 230px;
+        min-width: 230px;
+        height: 100px;
+        border-right: none;
     }
     @media screen and (max-width: 591px) {
         flex: 1;
-        width: 300px;
-        border: none;
+        min-width: 300px;
+        height: 80px;
+        border-right: none;
+    }
+`
+
+export const TableAdjust = styled.div`
+    text-align: center;
+    padding-top: 40px;
+    @media screen and (max-width: 1080px) {
+        padding-top: 17px;
+    }
+    @media screen and (max-width: 591px) {
+        padding-top: 10px;
     }
 `
 
