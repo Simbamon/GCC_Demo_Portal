@@ -121,7 +121,7 @@ export const TableInfo = styled.div`
     @media screen and (max-width: 591px) {
         flex: 1;
         min-width: 300px;
-        height: 80px;
+        height: 60px;
         border-right: none;
     }
 `
@@ -133,7 +133,7 @@ export const TableAdjust = styled.div`
         padding-top: 17px;
     }
     @media screen and (max-width: 591px) {
-        padding-top: 10px;
+        padding-top: 5px;
     }
 `
 

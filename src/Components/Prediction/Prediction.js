@@ -91,31 +91,31 @@ export class Prediction extends Component {
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Loan Amount</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>$1,343</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>$1,343</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Loan Purpose</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>New Car</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>New Car</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Loan Duration</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>13 Months</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>13 Months</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Installment Percentage</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>2%</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>2%</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo style={{borderRight:"none"}}>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Installment Plans</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>None</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>None</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                         </td>
@@ -134,31 +134,31 @@ export class Prediction extends Component {
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Checking status</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>No Checking</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>No Checking</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Others on Loan</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>None</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>None</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Credit History</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>Paid to Date</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Paid to Date</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Exisiting Savings</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>$100 to $500</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>$100 to $500</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo style={{borderRight: "none"}}>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Owns Property</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>Saving Insurance</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Saving Insurance</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                         </td>
@@ -166,31 +166,31 @@ export class Prediction extends Component {
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Job</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>Skilled</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Skilled</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Existing Credits Count</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>2 Credits</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>2 Credits</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Dependents</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>1</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>1</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Current Resident Duration</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>3 Years</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>3 Years</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo style={{borderRight: "none"}}>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Housing</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>Owned</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Owned</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                         </td>
@@ -209,31 +209,31 @@ export class Prediction extends Component {
                                         <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Gender</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>Female</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Male</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Age</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>46</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>46</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Job</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>Skilled</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Skilled</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Telephone</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>None</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>None</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo style={{borderRight: "none"}}>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Foreign Worker</p>
-                                                    <p style={{color: "#263438", fontSize: "1.2rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.2rem"}}>Yes</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Yes</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                         </td>
