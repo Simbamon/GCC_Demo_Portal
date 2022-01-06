@@ -55,7 +55,7 @@ export const PredicitionInfoWrap = styled.div`
     @media screen and (max-width: 591px) {
         flex: 1;
         margin-right: 0;
-        margin-top: 30px;
+        margin-top: 20px;
     }
 `
 
@@ -76,10 +76,8 @@ export const PredictionTable = styled.table`
     box-shadow: 13px 15px 55px -13px rgba(0,0,0,0.26);
     border: 0.1rem solid #c5d5d7;
 
-    thead {
-    }
     thead tr{
-        color: black;
+        color: #1a2426;
         font-weight: bold;
     }
     thead tr th {
@@ -92,6 +90,15 @@ export const PredictionTable = styled.table`
     tbody tr td  {
         display: flex;
         flex-wrap: wrap;
+    }
+    @media screen and (max-width: 1080px) {
+        text-align: center;
+        thead tr th {
+            padding: 0px;
+        }
+    }
+    @media screen and (max-width: 591px) {
+        text-align: center;
     }
     
 `
