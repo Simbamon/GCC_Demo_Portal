@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import { PredictionWrap, PredictionTitle, ContentsWrap, PredicitionProfileWrap, PredicitionInfoWrap, PredicitionAIWrap,
-    ProfileBox, ProfilePic} from './Prediction_element'
+    ProfileBox, ProfilePic, PredictionTable, TableInfo } from './Prediction_element'
 
 export class Prediction extends Component {
     
     // async componentDidMount() {
-    //     const test = await fetch('/watsonml/token')
-    //     const resp = await test.json()
-    //     const cp4d_token = resp.access_token
+    //     // const test = await fetch('/watsonml/token')
+    //     // const resp = await test.json()
+    //     // const cp4d_token = resp.access_token
 
-    //     const get_token = await fetch('/wkc/token')
+    //     const get_token = await fetch('/watsonml/wmltoken')
     //     const received_token = await get_token.json()
     //     const wkc_token = received_token.token
 
-    //     const mongo_id = "61c99eccaeb631adea83ac77"
-    //     const payload = await fetch('/watsonml/payloads/' + mongo_id)
-    //     const payload_response = await payload.json()
+    //     // const mongo_id = "61c99eccaeb631adea83ac77"
+    //     // const payload = await fetch('/watsonml/payloads/' + mongo_id)
+    //     // const payload_response = await payload.json()
         
 
     //     const data = { token: wkc_token, 
-    //                    url: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/560d144f-aded-4767-9e85-071585d654ad/predictions?version=2022-01-04",
+    //                    url: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/72af3371-7b53-49d6-8c68-8a5e81ad82df/predictions?version=2022-01-06",
     //                 //    input_data: [payload_response]
     //                     input_data: [
     //                         {
@@ -79,10 +79,61 @@ export class Prediction extends Component {
                             </ProfileBox>
                         </PredicitionProfileWrap>
                         <PredicitionInfoWrap>
-                            <ProfileBox>
-                                dsadfsfadsfasdfdsafadsfadsfds
-                            </ProfileBox>
-
+                            <PredictionTable>
+                                <thead>
+                                    <tr>
+                                        <th>Loan/Installment</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr>
+                                        <td>
+                                            <TableInfo>aasdfadsf</TableInfo>
+                                            <TableInfo>aadsfadsfds</TableInfo>
+                                            <TableInfo>aadsfadsfa</TableInfo>
+                                            <TableInfo>aasdfadsf</TableInfo>
+                                            <TableInfo>aasdfdsaf</TableInfo>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </PredictionTable>
+                            <PredictionTable style={{marginTop: "30px"}}>
+                                <thead>
+                                    <tr>
+                                        <th>Financial/Personal Information</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <tr>
+                                        <td>
+                                            <TableInfo>
+                                                <div style={{textAlign: "center" }}>
+                                                    <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "0.9rem", paddingBottom: "20px"}}>Checking Status</p>
+                                                    <p style={{color: "black", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>No Checking</p>
+                                                </div>                                                
+                                            </TableInfo>
+                                            <TableInfo></TableInfo>
+                                            <TableInfo></TableInfo>
+                                            <TableInfo></TableInfo>
+                                            <TableInfo></TableInfo>
+                                        </td>
+                                        <td>
+                                            <TableInfo>aasdfadsf</TableInfo>
+                                            <TableInfo>aadsfadsfds</TableInfo>
+                                            <TableInfo>aadsfadsfa</TableInfo>
+                                            <TableInfo>aasdfadsf</TableInfo>
+                                            <TableInfo>aasdfdsaf</TableInfo>
+                                        </td>
+                                        <td>
+                                            <TableInfo>aasdfadsf</TableInfo>
+                                            <TableInfo>aadsfadsfds</TableInfo>
+                                            <TableInfo>aadsfadsfa</TableInfo>
+                                            <TableInfo>aasdfadsf</TableInfo>
+                                            <TableInfo>aasdfdsaf</TableInfo>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </PredictionTable>
                         </PredicitionInfoWrap>
                         <PredicitionAIWrap>
                         asdfasdfadsfadsa
