@@ -1,56 +1,76 @@
 import React, { Component } from 'react'
 import { PredictionWrap, PredictionTitle, ContentsWrap, PredicitionProfileWrap, PredicitionInfoWrap, PredicitionAIWrap,
-    ProfileBox, ProfilePic, PredictionTable, TableInfo, TableAdjust } from './Prediction_element'
+         ProfileBox, ProfilePic, PredictionTable, TableInfo, TableAdjust, MLTable, MLTableInfo, MLTableAdjust, MLButton, 
+         PoweredBy, PoweredByImage } from './Prediction_element'
+import { Settings } from '@material-ui/icons'
 
 export class Prediction extends Component {
     
-    // async componentDidMount() {
-    //     // const test = await fetch('/watsonml/token')
-    //     // const resp = await test.json()
-    //     // const cp4d_token = resp.access_token
+    constructor(props) {
+        super(props)
+        this.state = {
+          loading: true
+        }
+    }
+    async componentDidMount() {
+        // const test = await fetch('/watsonml/token')
+        // const resp = await test.json()
+        // const cp4d_token = resp.access_token
 
-    //     const get_token = await fetch('/watsonml/wmltoken')
-    //     const received_token = await get_token.json()
-    //     const wkc_token = received_token.token
+        const get_token = await fetch('/watsonml/wmltoken')
+        const received_token = await get_token.json()
+        const wkc_token = received_token.token
 
-    //     // const mongo_id = "61c99eccaeb631adea83ac77"
-    //     // const payload = await fetch('/watsonml/payloads/' + mongo_id)
-    //     // const payload_response = await payload.json()
+        // const mongo_id = "61c99eccaeb631adea83ac77"
+        // const payload = await fetch('/watsonml/payloads/' + mongo_id)
+        // const payload_response = await payload.json()
         
 
-    //     const data = { token: wkc_token, 
-    //                    url: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/72af3371-7b53-49d6-8c68-8a5e81ad82df/predictions?version=2022-01-06",
-    //                 //    input_data: [payload_response]
-    //                     input_data: [
-    //                         {
-    //                             "fields": ["CheckingStatus", "LoanDuration", "CreditHistory", "LoanPurpose", "LoanAmount", "ExistingSavings",
-    //                                 "EmploymentDuration", "InstallmentPercent", "Sex", "OthersOnLoan", "CurrentResidenceDuration",
-    //                                 "OwnsProperty", "Age", "InstallmentPlans", "Housing", "ExistingCreditsCount", "Job", "Dependents",
-    //                                 "Telephone", "ForeignWorker"],
-    //                             "values": [
-    //                             ["no_checking", 13, "credits_paid_to_date", "car_new", 1343, "100_to_500", "1_to_4", 2, "female", "none", 3,
-    //                             "savings_insurance", 46, "none", "own", 2, "skilled", 1, "none", "yes"],
-    //                             ["no_checking", 24, "prior_payments_delayed", "furniture", 4567, "500_to_1000", "1_to_4", 4, "male", "none",
-    //                             4, "savings_insurance", 36, "none", "free", 2, "management_self-employed", 1, "none", "yes"]
-    //                         ]
-    //                         }
-    //                     ]
-    //                  }
-    //     console.log(data)
-    //     const options = {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     }
+        const data = { token: wkc_token, 
+                       url: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/72af3371-7b53-49d6-8c68-8a5e81ad82df/predictions?version=2022-01-06",
+                    //    input_data: [payload_response]
+                        input_data: [
+                            {
+                                "fields": ["CheckingStatus", "LoanDuration", "CreditHistory", "LoanPurpose", "LoanAmount", "ExistingSavings",
+                                    "EmploymentDuration", "InstallmentPercent", "Sex", "OthersOnLoan", "CurrentResidenceDuration",
+                                    "OwnsProperty", "Age", "InstallmentPlans", "Housing", "ExistingCreditsCount", "Job", "Dependents",
+                                    "Telephone", "ForeignWorker"],
+                                "values": [
+                                ["no_checking", 13, "credits_paid_to_date", "car_new", 1343, "100_to_500", "1_to_4", 2, "female", "none", 3,
+                                "savings_insurance", 46, "none", "own", 2, "skilled", 1, "none", "yes"],
+                                ["no_checking", 24, "prior_payments_delayed", "furniture", 4567, "500_to_1000", "1_to_4", 4, "male", "none",
+                                4, "savings_insurance", 36, "none", "free", 2, "management_self-employed", 1, "none", "yes"]
+                            ]
+                            }
+                        ]
+                     }
+        console.log(data)
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
 
-    //     const response = await fetch('/watsonml/test', options)
-    //     const qwer = await response.json()
-    //     console.log(qwer)
-    // }
+        const response = await fetch('/watsonml/test', options)
+        const qwer = await response.json()
+        console.log(qwer)
+        this.setState({ loading: false })
+    }
+    
+    
 
     render() {
+
+        let ml_content
+        if(this.state.loading) {
+            ml_content = <p>Loading...</p>
+        }
+        else {
+            ml_content = <p style={{color: "#263438", fontSize: "1.7rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.7rem"}}>No Risk</p>
+        }
+
         return (
             <>
                 <PredictionWrap>
@@ -165,8 +185,8 @@ export class Prediction extends Component {
                                         <td>
                                             <TableInfo>
                                                 <TableAdjust>
-                                                    <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Job</p>
-                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Skilled</p>
+                                                    <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Employment Duration</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>1 to 4 Years</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>
@@ -241,9 +261,48 @@ export class Prediction extends Component {
                                 </tbody>
                             </PredictionTable>
                         </PredicitionInfoWrap>
+                        
                         <PredicitionAIWrap>
-                        asdfasdfadsfadsa
-
+                            <MLTable>
+                                <thead>
+                                    <tr>
+                                        <th>Machine Learning</th>
+                                        <Settings style = {{fontSize: "1.9rem", lineHeight: "45px"}}/>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <MLTableInfo>
+                                                <MLTableAdjust>
+                                                    {ml_content}
+                                                </MLTableAdjust>
+                                                <div style={{position: "absolute", bottom: "0",  justifyContent: "left", margin: "10px"}}>
+                                                    <PoweredByImage img = {require('../../images/ibm.png').default} alt='profile photo'></PoweredByImage>
+                                                </div> 
+                                            </MLTableInfo>
+                                        </td>
+                                        <td>
+                                            <MLButton>Predict</MLButton>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </MLTable>
+                            <MLTable style={{marginTop: "20px"}}>
+                                <thead>
+                                    <tr>
+                                        <th style={{BorderBottom:"2px solid green", fontSize: "0.8rem", }}>Approve</th>
+                                        <th style={{fontSize: "0.8rem"}}>Reject</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <MLTableInfo style={{height: "150px"}}></MLTableInfo>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </MLTable>           
                         </PredicitionAIWrap>    
                     </ContentsWrap>
                 </PredictionWrap>

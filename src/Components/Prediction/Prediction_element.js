@@ -138,12 +138,127 @@ export const TableAdjust = styled.div`
 `
 
 export const PredicitionAIWrap = styled.div`
-    background:green;
     flex:1.5;
     width:100%;
-    height:500px;
+    height:100%;
     @media screen and (max-width: 591px) {
         flex: 1;
         margin-top: 30px;
     }
+`
+
+export const MLTable = styled.table`
+    flex: 1;
+    white-space: nowrap;
+    background-color: white;
+    text-align: left;
+    font-size: 0.85rem;
+    height: 100%;
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+    overflow-x:auto;
+    border-radius: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-shadow: 13px 15px 55px -13px rgba(0,0,0,0.26);
+    border: 0.1rem solid #c5d5d7;
+
+    thead tr{
+        color: #1a2426;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+    }
+    thead tr th {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 45px;
+        padding: 5px 0 5px 20px;
+    }
+    tbody tr td  {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @media screen and (max-width: 1080px) {
+        text-align: center;
+        thead tr th {
+            padding: 0px;
+        }
+    }
+    @media screen and (max-width: 591px) {
+        text-align: center;
+    }
+    
+`
+
+export const MLTableInfo = styled.div`
+    height: 220px;
+    flex:1;
+    border-top: 0.1rem solid #c5d5d7;
+    width: 100%;
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    white-space:normal;
+    @media screen and (max-width: 1080px) {
+        flex: 1;
+        min-width: 230px;
+        height: 180px;
+    }
+    @media screen and (max-width: 591px) {
+        flex: 1;
+        min-width: 300px;
+        height: 140px;
+    }
+`
+
+export const MLTableAdjust = styled.div`
+    text-align: center;
+    padding-top: 40px;
+    @media screen and (max-width: 1080px) {
+        padding-top: 17px;
+    }
+    @media screen and (max-width: 591px) {
+        padding-top: 5px;
+    }
+`
+
+export const MLButton = styled.button`
+    background: #1c5c9c;
+    white-space: nowrap;
+    color: #fff;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+
+    &:hover {
+        transition: all 0.3s ease-out;
+        border: none;
+        background: grey;
+    }
+
+`
+
+export const PoweredBy = styled.div`
+    width: 10px;
+    height: 10px;
+    position:absolute;
+    bottom:0;
+    left:0;
+`
+
+export const PoweredByImage = styled.div`
+    background-image: url(${props => props.img});
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 10px;
+    text-decoration: none;
+    padding: 5px;
 `
