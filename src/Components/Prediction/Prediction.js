@@ -82,10 +82,10 @@ export class Prediction extends Component {
                         <PredicitionProfileWrap>
                             <ProfileBox>
                                 <div style={{paddingTop: "25px", display: "flex", justifyContent: "center"}}>
-                                    <ProfilePic img = {require('../../images/client.jpg').default} alt='profile photo'></ProfilePic>
+                                    <ProfilePic img = {require('../../images/client.jpeg').default} alt='profile photo'></ProfilePic>
                                 </div>
                                 <div style={{paddingTop: "20px", paddingBottom: "25px", textAlign: "center" }}>
-                                    <p style={{color: "#263438", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>송성현</p>
+                                    <p style={{color: "#263438", fontSize: "1.25rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.25rem"}}>신효정</p>
                                     <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "0.9rem"}}>고객 ID: 5nqCOzqVObtW</p>
                                 </div>
                             </ProfileBox>
@@ -229,7 +229,7 @@ export class Prediction extends Component {
                                         <TableInfo>
                                                 <TableAdjust>
                                                     <p style={{color: "grey", fontSize: "0.72rem", lineHeight: "0.9rem", paddingBottom: "15px"}}>Gender</p>
-                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Male</p>
+                                                    <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.0rem"}}>Female</p>
                                                 </TableAdjust> 
                                             </TableInfo>
                                             <TableInfo>

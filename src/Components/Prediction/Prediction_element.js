@@ -41,7 +41,7 @@ export const ProfileBox = styled.div`
 export const ProfilePic = styled.div`
     background-image: url(${props => props.img});
     background-size: cover;
-    width: 100px;
+    width: 80px;
     border-radius: 50%;
     height: 100px;
     text-decoration: none;
@@ -168,7 +168,6 @@ export const MLTable = styled.table`
         color: #1a2426;
         font-weight: bold;
         display: flex;
-        justify-content: space-between;
     }
     thead tr th {
         font-size: 1.1rem;
