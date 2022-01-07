@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { PredictionWrap, PredictionTitle, ContentsWrap, PredicitionProfileWrap, PredicitionInfoWrap, PredicitionAIWrap,
          ProfileBox, ProfilePic, PredictionTable, TableInfo, TableAdjust, MLTable, MLTableInfo, MLTableAdjust, MLButton, 
-         OpenscaleImage, PoweredByImage, PoweredBy } from './Prediction_element'
+         OpenscaleImage, PoweredByImage, PoweredBy, ApproveTextLine, SubmitButton } from './Prediction_element'
 import { Link } from 'react-router-dom'
 
 export class Prediction extends Component {
@@ -12,52 +12,52 @@ export class Prediction extends Component {
           loading: true
         }
     }
-    // async componentDidMount() {
-    //     // const test = await fetch('/watsonml/token')
-    //     // const resp = await test.json()
-    //     // const cp4d_token = resp.access_token
+    async componentDidMount() {
+        // const test = await fetch('/watsonml/token')
+        // const resp = await test.json()
+        // const cp4d_token = resp.access_token
 
-    //     const get_token = await fetch('/watsonml/wmltoken')
-    //     const received_token = await get_token.json()
-    //     const wkc_token = received_token.token
+        const get_token = await fetch('/watsonml/wmltoken')
+        const received_token = await get_token.json()
+        const wkc_token = received_token.token
 
-    //     // const mongo_id = "61c99eccaeb631adea83ac77"
-    //     // const payload = await fetch('/watsonml/payloads/' + mongo_id)
-    //     // const payload_response = await payload.json()
+        // const mongo_id = "61c99eccaeb631adea83ac77"
+        // const payload = await fetch('/watsonml/payloads/' + mongo_id)
+        // const payload_response = await payload.json()
         
 
-    //     const data = { token: wkc_token, 
-    //                    url: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/fc896166-3494-424f-8837-4fe257441deb/predictions?version=2022-01-07",
-    //                 //    input_data: [payload_response]
-    //                     input_data: [
-    //                         {
-    //                             "fields": ["CheckingStatus", "LoanDuration", "CreditHistory", "LoanPurpose", "LoanAmount", "ExistingSavings",
-    //                                 "EmploymentDuration", "InstallmentPercent", "Sex", "OthersOnLoan", "CurrentResidenceDuration",
-    //                                 "OwnsProperty", "Age", "InstallmentPlans", "Housing", "ExistingCreditsCount", "Job", "Dependents",
-    //                                 "Telephone", "ForeignWorker"],
-    //                             "values": [
-    //                             ["no_checking", 13, "credits_paid_to_date", "car_new", 1343, "100_to_500", "1_to_4", 2, "female", "none", 3,
-    //                             "savings_insurance", 46, "none", "own", 2, "skilled", 1, "none", "yes"],
-    //                             ["no_checking", 24, "prior_payments_delayed", "furniture", 4567, "500_to_1000", "1_to_4", 4, "male", "none",
-    //                             4, "savings_insurance", 36, "none", "free", 2, "management_self-employed", 1, "none", "yes"]
-    //                         ]
-    //                         }
-    //                     ]
-    //                  }
-    //     console.log(data)
-    //     const options = {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     }
+        const data = { token: wkc_token, 
+                       url: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/fc896166-3494-424f-8837-4fe257441deb/predictions?version=2022-01-07",
+                    //    input_data: [payload_response]
+                        input_data: [
+                            {
+                                "fields": ["CheckingStatus", "LoanDuration", "CreditHistory", "LoanPurpose", "LoanAmount", "ExistingSavings",
+                                    "EmploymentDuration", "InstallmentPercent", "Sex", "OthersOnLoan", "CurrentResidenceDuration",
+                                    "OwnsProperty", "Age", "InstallmentPlans", "Housing", "ExistingCreditsCount", "Job", "Dependents",
+                                    "Telephone", "ForeignWorker"],
+                                "values": [
+                                ["no_checking", 13, "credits_paid_to_date", "car_new", 1343, "100_to_500", "1_to_4", 2, "female", "none", 3,
+                                "savings_insurance", 46, "none", "own", 2, "skilled", 1, "none", "yes"],
+                                ["no_checking", 24, "prior_payments_delayed", "furniture", 4567, "500_to_1000", "1_to_4", 4, "male", "none",
+                                4, "savings_insurance", 36, "none", "free", 2, "management_self-employed", 1, "none", "yes"]
+                            ]
+                            }
+                        ]
+                     }
+        console.log(data)
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
 
-    //     const response = await fetch('/watsonml/test', options)
-    //     const qwer = await response.json()
-    //     console.log(qwer)
-    //     this.setState({ loading: false })
-    // }
+        const response = await fetch('/watsonml/test', options)
+        const qwer = await response.json()
+        console.log(qwer)
+        this.setState({ loading: false })
+    }
     
     
 
@@ -270,9 +270,12 @@ export class Prediction extends Component {
                                         <th style={{width:"100%"}}>
                                             Machine Learning
                                         </th>
+                                        <th>
                                         <Link to="/openscale" style={{display:"inline-block", height:"100%"}}>
                                             <OpenscaleImage img = {require('../../images/openscale.jpg').default} alt='profile photo'></OpenscaleImage>
                                         </Link>
+                                        </th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -298,18 +301,25 @@ export class Prediction extends Component {
                             <MLTable style={{marginTop: "20px"}}>
                                 <thead>
                                     <tr>
-                                        <th style={{BorderBottom:"2px solid green", fontSize: "0.8rem", }}>Approve</th>
-                                        <th style={{fontSize: "0.8rem"}}>Reject</th>
+                                        <th style={{fontSize: "0.8rem"}}>
+                                            <div><ApproveTextLine>승인</ApproveTextLine></div>
+                                        </th>
+                                        <th style={{fontSize: "0.8rem"}}>거절</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <MLTableInfo style={{height: "150px"}}></MLTableInfo>
+                                            <MLTableInfo style={{height: "150px"}}>
+                                                <p style={{color: "#949494", fontSize: "0.9rem", lineHeight: "0.9rem", margin: "15px"}}>
+                                                    Write your comment here...
+                                                </p>
+                                            </MLTableInfo>
                                         </td>
                                     </tr>
                                 </tbody>
-                            </MLTable>           
+                            </MLTable>
+                            <SubmitButton>Submit</SubmitButton>           
                         </PredicitionAIWrap>    
                     </ContentsWrap>
                 </PredictionWrap>

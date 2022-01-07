@@ -227,6 +227,33 @@ export const MLButton = styled.button`
 
 `
 
+export const SubmitButton = styled.button`
+    background: #079178;
+    white-space: nowrap;
+    color: #fff;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 35%;
+    border-radius: 8px;
+    margin-top: 20px;
+    float: right;
+
+    &:hover {
+        transition: all 0.3s ease-out;
+        border: none;
+        background: grey;
+    }
+    @media screen and (max-width: 591px) {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+`
+
 export const PoweredBy = styled.div`
     margin: 10px;
     position:absolute;
@@ -248,9 +275,14 @@ export const OpenscaleImage = styled.div`
     background-image: url(${props => props.img});
     background-size: contain;
     background-repeat: no-repeat;
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     text-decoration: none;
-    margin: 12.5px 15px 12.5px 0;
+    margin: 5px 15px 5px 0;
     vertical-align: middle;
+`
+
+export const ApproveTextLine = styled.span`
+    border-bottom:5px solid #079178;
+    padding-bottom:13px;
 `
