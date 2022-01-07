@@ -5,6 +5,7 @@ import Prediction from './Components/Prediction/Prediction'
 import Client1 from './Components/Clients/Client1'
 import Client2 from './Components/Asset_Not_Approved/Client2'
 import Asset_list from './Components/Asset_List/Asset_list'
+import Catalog from './Components/Catalog/Catalog'
 import { BrowserRouter as Router, Route, HashRouter } from 'react-router-dom'
 import './App.css';
 
@@ -18,9 +19,10 @@ function App() {
         <div className="contents">
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/prediction" exact component={Prediction}/>
+          <Route path="/catalog" exact component={Catalog} />
           <Route path="/catalog/asset_id=1ee6388b-25b2-48b1-9f20-0d144e7275df" exact component={Client1} />
           <Route path="/catalog/asset_id=7d698965-f2f0-4338-af48-41758dbe87a0" exact component={Client2} />
-          <Route path="/catalog" exact component={Asset_list} />
+          <Route path="/catalog/list" exact component={Asset_list} />
         </div>
       </div>
       

@@ -139,19 +139,19 @@ export class Dashboard extends Component {
                             <tbody>
                                 <td>
                                     <CatalogWrapper>
-                                        <Link to="catalog" style={{ textDecoration: "none", flex: "1"}}>
+                                        <Link to="catalog/list" style={{ textDecoration: "none", flex: "1"}}>
                                             <CatalogItem>
                                                 <CatalogPicture src={require('../../images/customer.svg').default} alt='factory'/>
                                                 <CatalogName>고객 데이터</CatalogName>
                                             </CatalogItem>
                                         </Link>
-                                        <Link to="catalog" style={{ textDecoration: "none", flex: "1" }}>
+                                        <Link to="catalog/list" style={{ textDecoration: "none", flex: "1" }}>
                                             <CatalogItem>
                                                 <CatalogPicture src={require('../../images/factory.svg').default} alt='factory'/>
                                                 <CatalogName>생산/출하 데이터</CatalogName>
                                             </CatalogItem>
                                         </Link>
-                                        <Link to="catalog" style={{ textDecoration: "none", flex: "1" }}>
+                                        <Link to="catalog/list" style={{ textDecoration: "none", flex: "1" }}>
                                             <CatalogItem>
                                                 <CatalogPicture src={require('../../images/analysis.svg').default} alt='factory'/>
                                                 <CatalogName>품질 데이터</CatalogName>

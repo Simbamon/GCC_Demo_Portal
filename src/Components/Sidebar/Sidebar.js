@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { SideBar, SidebarWrapper, SidebarList, SidebarListItem, ProfileSection, ProfilePic } from './Sidebar_element'
-import { Dashboard, AssignmentInd, DesktopMac, KeyboardArrowRight, Cloud , BarChart, Settings} from '@material-ui/icons'
+import { Dashboard, LibraryBooks, DesktopMac, KeyboardArrowRight, Cloud , BarChart, Settings} from '@material-ui/icons'
 import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom'
 
@@ -36,7 +36,7 @@ export class Sidebar extends Component {
                                         <KeyboardArrowRight />
                                     </SidebarListItem>
                                 </Link>
-                                <a href="/" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#555' }}>
+                                <a href="https://cpd-zen.apps.da.tech.local/projects/6362a80c-474d-4f58-881e-c1aaa5b9dfe0/assets?context=icp4data" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#555' }}>
                                     <SidebarListItem>
                                         <div style= {{display: "flex", alignItems: "center"}}>
                                             <Cloud style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
@@ -47,7 +47,7 @@ export class Sidebar extends Component {
                                 <SidebarListItem>
                                     <div style= {{display: "flex", alignItems: "center"}}>
                                         <BarChart style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                        Tableau 바로가기
+                                        Cognos Analytics 바로가기
                                     </div>
                                 </SidebarListItem>
                                 {/*This is for local file execution command */}
@@ -57,11 +57,11 @@ export class Sidebar extends Component {
                                         Tableau 바로가기
                                     </div>
                                 </SidebarListItem> */}
-                                <Link to="/client" style={{ textDecoration: 'none', color: '#555' }}>
+                                <Link to="/catalog" style={{ textDecoration: 'none', color: '#555' }}>
                                     <SidebarListItem>
                                         <div style= {{display: "flex", alignItems: "center"}}>
-                                            <AssignmentInd style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                            사용자 권한 관리
+                                            <LibraryBooks style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
+                                            카탈로그
                                         </div>
                                         <KeyboardArrowRight />
                                     </SidebarListItem>

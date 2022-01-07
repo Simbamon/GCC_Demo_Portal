@@ -41,7 +41,7 @@ export const ProfileBox = styled.div`
 export const ProfilePic = styled.div`
     background-image: url(${props => props.img});
     background-size: cover;
-    width: 80px;
+    width: 100px;
     border-radius: 50%;
     height: 100px;
     text-decoration: none;
@@ -172,27 +172,18 @@ export const MLTable = styled.table`
     thead tr th {
         font-size: 1.1rem;
         font-weight: bold;
-        line-height: 45px;
+        line-height: 40px;
         padding: 5px 0 5px 20px;
+        display: flex;
     }
     tbody tr td  {
         display: flex;
         flex-wrap: wrap;
     }
-    @media screen and (max-width: 1080px) {
-        text-align: center;
-        thead tr th {
-            padding: 0px;
-        }
-    }
-    @media screen and (max-width: 591px) {
-        text-align: center;
-    }
-    
 `
 
 export const MLTableInfo = styled.div`
-    height: 220px;
+    height: 200px;
     flex:1;
     border-top: 0.1rem solid #c5d5d7;
     width: 100%;
@@ -202,25 +193,17 @@ export const MLTableInfo = styled.div`
     white-space:normal;
     @media screen and (max-width: 1080px) {
         flex: 1;
-        min-width: 230px;
-        height: 180px;
+        min-width: 250px;
     }
     @media screen and (max-width: 591px) {
         flex: 1;
         min-width: 300px;
-        height: 140px;
     }
 `
 
 export const MLTableAdjust = styled.div`
     text-align: center;
-    padding-top: 40px;
-    @media screen and (max-width: 1080px) {
-        padding-top: 17px;
-    }
-    @media screen and (max-width: 591px) {
-        padding-top: 5px;
-    }
+    padding-top: 55px;
 `
 
 export const MLButton = styled.button`
@@ -245,11 +228,10 @@ export const MLButton = styled.button`
 `
 
 export const PoweredBy = styled.div`
-    width: 10px;
-    height: 10px;
+    margin: 10px;
     position:absolute;
     bottom:0;
-    left:0;
+    justify-content:left;
 `
 
 export const PoweredByImage = styled.div`
@@ -260,4 +242,15 @@ export const PoweredByImage = styled.div`
     height: 10px;
     text-decoration: none;
     padding: 5px;
+`
+
+export const OpenscaleImage = styled.div`
+    background-image: url(${props => props.img});
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+    text-decoration: none;
+    margin: 12.5px 15px 12.5px 0;
+    vertical-align: middle;
 `
