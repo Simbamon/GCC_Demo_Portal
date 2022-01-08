@@ -222,7 +222,7 @@ export const MLButton = styled.button`
     &:hover {
         transition: all 0.3s ease-out;
         border: none;
-        background: grey;
+        background: #194978;
     }
 
 `
@@ -245,7 +245,7 @@ export const SubmitButton = styled.button`
     &:hover {
         transition: all 0.3s ease-out;
         border: none;
-        background: grey;
+        background: #0b7562;
     }
     @media screen and (max-width: 591px) {
         width: 100%;

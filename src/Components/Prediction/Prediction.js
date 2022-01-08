@@ -9,14 +9,17 @@ export class Prediction extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          loading: true
+          loading: true,
+          prediction_value: "-",
+          probability_a: "-",
+          probability_b: "-",
         }
     }
     async componentDidMount() {
-        // const test = await fetch('/watsonml/token')
-        // const resp = await test.json()
-        // const cp4d_token = resp.access_token
-
+        
+    }
+    
+    async getPredictionValue() {
         const get_token = await fetch('/watsonml/wmltoken')
         const received_token = await get_token.json()
         const wkc_token = received_token.token
@@ -37,9 +40,7 @@ export class Prediction extends Component {
                                     "Telephone", "ForeignWorker"],
                                 "values": [
                                 ["no_checking", 13, "credits_paid_to_date", "car_new", 1343, "100_to_500", "1_to_4", 2, "female", "none", 3,
-                                "savings_insurance", 46, "none", "own", 2, "skilled", 1, "none", "yes"],
-                                ["no_checking", 24, "prior_payments_delayed", "furniture", 4567, "500_to_1000", "1_to_4", 4, "male", "none",
-                                4, "savings_insurance", 36, "none", "free", 2, "management_self-employed", 1, "none", "yes"]
+                                "savings_insurance", 46, "none", "own", 2, "skilled", 1, "none", "yes"]
                             ]
                             }
                         ]
@@ -54,24 +55,17 @@ export class Prediction extends Component {
         }
 
         const response = await fetch('/watsonml/test', options)
-        const qwer = await response.json()
-        console.log(qwer)
-        this.setState({ loading: false })
+        const response_values = await response.json()
+        this.setState({
+            prediction_value: response_values.predictions[0].values[0][0],
+            probability_a: Number((response_values.predictions[0].values[0][1][0] * 100).toFixed(2)),
+            probability_b: Number((response_values.predictions[0].values[0][1][1] * 100).toFixed(2)),
+            loading: false,
+        })
     }
-    
     
 
     render() {
-
-        let ml_content
-        if(this.state.loading) {
-            ml_content = <p style={{color: "#263438", marginBottom:"10px", lineHeight: "1.7rem"}}>Loading...</p>
-        }
-        else {
-            ml_content =<p style={{color: "#263438", fontSize: "1.7rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.7rem"}}>No Risk</p>
-
-        }
-
         return (
             <>
                 <PredictionWrap>
@@ -283,9 +277,19 @@ export class Prediction extends Component {
                                         <td>
                                             <MLTableInfo>
                                                 <MLTableAdjust>
-                                                    {ml_content}
-                                                    <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Prediction: 51.68%</p>
-                                                    <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Probability: 48.31%</p>
+                                                    {this.state.loading ? 
+                                                        <div>
+                                                            <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.8rem"}}>Click the predict button below</p>
+                                                            <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Prediction: -</p>
+                                                            <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Probability: -</p>
+                                                        </div> 
+                                                        : 
+                                                        <div>
+                                                            <p style={{color: "#263438", fontSize: "1.8rem", fontWeight: "bold", marginBottom:"10px", lineHeight: "1.8rem"}}>{this.state.prediction_value}</p>
+                                                            <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Prediction: {this.state.probability_a}%</p>
+                                                            <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Probability: {this.state.probability_b}%</p>
+                                                        </div>
+                                                    }
                                                 </MLTableAdjust>
                                                 <PoweredBy>
                                                     <PoweredByImage img = {require('../../images/ibm.png').default} alt='powered by ibm'></PoweredByImage>
@@ -293,7 +297,9 @@ export class Prediction extends Component {
                                             </MLTableInfo>
                                         </td>
                                         <td>
-                                            <MLButton>Predict</MLButton>
+                                            <MLButton onClick={() => {this.getPredictionValue()}}>
+                                                Predict
+                                            </MLButton>
                                         </td>
                                     </tr>
                                 </tbody>
