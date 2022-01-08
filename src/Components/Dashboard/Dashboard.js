@@ -158,9 +158,6 @@ export class Dashboard extends Component {
                                             </CatalogItem>
                                         </Link>
                                     </CatalogWrapper>
-                                    <div>
-                                        
-                                    </div>
                                 </td>
                             </tbody>
                             
