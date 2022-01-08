@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { PredictionWrap, PredictionTitle, ContentsWrap, PredicitionProfileWrap, PredicitionInfoWrap, PredicitionAIWrap,
          ProfileBox, ProfilePic, PredictionTable, TableInfo, TableAdjust, MLTable, MLTableInfo, MLTableAdjust, MLButton, 
-         OpenscaleImage, PoweredByImage, PoweredBy, ApproveTextLine, SubmitButton } from './Prediction_element'
+         OpenscaleImage, PoweredByImage, PoweredBy, CommentBox, ApproveTextLine, SubmitButton } from './Prediction_element'
 import { Link } from 'react-router-dom'
 
 export class Prediction extends Component {
@@ -317,9 +317,7 @@ export class Prediction extends Component {
                                     <tr>
                                         <td>
                                             <MLTableInfo style={{height: "150px"}}>
-                                                <p style={{color: "#949494", fontSize: "0.9rem", lineHeight: "0.9rem", margin: "15px"}}>
-                                                    Write your comment here...
-                                                </p>
+                                                <CommentBox defaultValue="Write your comment here..." type="text" /> 
                                             </MLTableInfo>
                                         </td>
                                     </tr>

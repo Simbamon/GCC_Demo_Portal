@@ -226,6 +226,15 @@ export const MLButton = styled.button`
     }
 
 `
+export const CommentBox = styled.input`
+    color: #949494;
+    font-size: 0.9rem;
+    line-height: 0.9rem;
+    margin: 15px;
+    width: calc(100% - 30px);
+    border: none;
+    outline: none;
+`
 
 export const SubmitButton = styled.button`
     background: #079178;
