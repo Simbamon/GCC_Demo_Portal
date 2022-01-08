@@ -10,7 +10,40 @@ export const CatalogWrapTitle = styled.div`
     padding: 35px 35px 0px 35px;
     font-size: 1.7rem;
     font-weight: bold;
-    line-height: 1.7rem;
+    line-height: 40px;
+    display: flex;
+    justify-content: space-between;
+`
+
+export const CP4DButton = styled.button`
+    background: #1c5c9c;
+    white-space: nowrap;
+    color: #fff;
+    height: 40px;
+    font-size: 13.5px;
+    line-height: 25px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 8px;
+    float: right;
+
+    &:hover {
+        transition: all 0.3s ease-out;
+        border: none;
+        background: #194978;
+    }
+    @media screen and (max-width: 1080px) {
+        font-size: 12px;
+        width: 180px;
+    }
+    @media screen and (max-width: 591px) {
+        font-size: 10px;
+        width: 130px;
+    }
+
 `
 
 export const CatalogContentsWrap = styled.div`
@@ -41,7 +74,7 @@ export const CatalogTable = styled.table`
         font-weight: bold;
     }
     thead tr th {
-        display: inline;
+        display: flex;
         font-size: 1.35rem;
         font-weight: bold;
         line-height: 50px;
@@ -60,7 +93,7 @@ export const CatalogTable = styled.table`
     }
     @media screen and (max-width: 591px) {
         thead tr th {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
         line-height: 40px;
         }
     }
@@ -70,24 +103,29 @@ export const CatalogTable = styled.table`
 export const CatalogWrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
-    margin-bottom :5px;
+    margin-top: 20px;
+    margin-left: 20px;
+    @media screen and (max-width: 1080px) {
+        margin-top: 15px;
+        margin-left: 15px;
+    }
 `
 
 export const CatalogLink = styled(Link)`
     text-decoration: none;
-    flex:1 0 20%;
-    width: calc(100%/5);
-    min-width: 400px;
-    min-height: 400px;
+    flex:1 0 23%;
+    width: calc(100%/4);
+    min-width: 320px;
+    min-height: 320px;
     @media screen and (max-width: 1080px) {
         flex: 1 0 30%;
-        min-width: 280px;
-        min-height: 280px;
+        min-width: 270px;
+        min-height: 270px;
     }
     @media screen and (max-width: 591px) {
         flex: 1 0 45%;
-        min-width: 150px;
-        min-height: 150px;
+        min-width: 120px;
+        min-height: 120px;
     }
 `
 
@@ -96,21 +134,20 @@ export const CatalogItem = styled.div`
     flex: 1;
     border-radius: 5px;
     padding: 10px;
-    margin: 20px;
     cursor: pointer;
+    margin-right: 20px;
+    margin-bottom: 20px;
     text-align: center;
     @media screen and (max-width: 1080px) {
-        margin: 10px;
-    }
-    @media screen and (max-width: 591px) {
-        margin: 5px;
+        margin-right: 15px;
+        margin-bottom: 15px;
     }
 
 `
 
 export const CatalogPicture = styled.img`
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
 
     ${CatalogItem}:hover & {
         transition: all 0.3s ease-out;
@@ -122,8 +159,8 @@ export const CatalogPicture = styled.img`
         height: 180px;
     }
     @media screen and (max-width: 591px) {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 `
 

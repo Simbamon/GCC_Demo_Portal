@@ -9,7 +9,7 @@ export const DashboardTitle = styled.div`
     padding: 10px;
     font-size: 1.7rem;
     font-weight: bold;
-    line-height: 1.7rem;
+    line-height: 40px;
 `
 
 export const BoxInfo = styled.div`

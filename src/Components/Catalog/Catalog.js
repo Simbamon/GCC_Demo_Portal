@@ -1,19 +1,24 @@
 import React, { Component } from 'react'
-import { CatalogWrap, CatalogWrapTitle, CatalogContentsWrap, CatalogTable, CatalogWrapper, CatalogLink, CatalogItem, CatalogPicture,
-         CatalogName } from './Catalog_element'
+import { CatalogWrap, CatalogWrapTitle, CP4DButton, CatalogContentsWrap, CatalogTable, CatalogWrapper, CatalogLink, 
+         CatalogItem, CatalogPicture, CatalogName } from './Catalog_element'
 
 export class Catalog extends Component {
     render() {
         return (
             <>
                 <CatalogWrap>
-                    <CatalogWrapTitle>Catalog</CatalogWrapTitle>
+                    <CatalogWrapTitle>
+                        카탈로그
+                        <CP4DButton>
+                            CP4D 프로젝트 바로가기
+                        </CP4DButton>
+                    </CatalogWrapTitle>
                     <CatalogContentsWrap>
                         <CatalogTable>
                             <thead>
                                 <tr>
                                     <th>
-                                        asdfdsaf
+                                       원하시는 카테고리를 고르세요
                                     </th>
                                 </tr>
                             </thead>

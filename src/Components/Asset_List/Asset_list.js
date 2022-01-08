@@ -128,7 +128,7 @@ export class Asset_list extends Component {
                                         <tr>
                                             <td>
                                                 <div style={{display: "flex"}}>
-                                                    <Link to="catalog/asset_id=1ee6388b-25b2-48b1-9f20-0d144e7275df" style={{ textDecoration: 'none' }}>
+                                                    <Link to="asset_id=1ee6388b-25b2-48b1-9f20-0d144e7275df" style={{ textDecoration: 'none' }}>
                                                         <AssetName>{info.name}</AssetName>
                                                     </Link>
                                                     <AssetTitleCatalogName>{this.state.catalog_name}</AssetTitleCatalogName>
