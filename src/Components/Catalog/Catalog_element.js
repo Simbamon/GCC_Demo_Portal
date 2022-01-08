@@ -115,8 +115,8 @@ export const CatalogLink = styled(Link)`
     text-decoration: none;
     flex:1 0 23%;
     width: calc(100%/4);
-    min-width: 320px;
-    min-height: 320px;
+    min-width: 280px;
+    min-height: 280px;
     @media screen and (max-width: 1080px) {
         flex: 1 0 30%;
         min-width: 270px;
@@ -146,8 +146,8 @@ export const CatalogItem = styled.div`
 `
 
 export const CatalogPicture = styled.img`
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
 
     ${CatalogItem}:hover & {
         transition: all 0.3s ease-out;
@@ -155,8 +155,8 @@ export const CatalogPicture = styled.img`
     }
 
     @media screen and (max-width: 1080px) {
-        width: 180px;
-        height: 180px;
+        width: 170px;
+        height: 170px;
     }
     @media screen and (max-width: 591px) {
         width: 80px;
