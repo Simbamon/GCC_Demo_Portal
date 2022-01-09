@@ -108,8 +108,11 @@ export const TableInfo = styled.div`
     flex:1 0 18%;
     border-top: 0.1rem solid #c5d5d7;
     width: calc(100%/5);
-    display: table-cell;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     vertical-align: middle;
+    text-align: center;
     white-space:normal;
     border-right: 0.1rem solid #c5d5d7;
     @media screen and (max-width: 1080px) {
@@ -123,17 +126,6 @@ export const TableInfo = styled.div`
         min-width: 300px;
         height: 60px;
         border-right: none;
-    }
-`
-
-export const TableAdjust = styled.div`
-    text-align: center;
-    padding-top: 40px;
-    @media screen and (max-width: 1080px) {
-        padding-top: 17px;
-    }
-    @media screen and (max-width: 591px) {
-        padding-top: 5px;
     }
 `
 
@@ -185,12 +177,13 @@ export const MLTable = styled.table`
 export const MLTableInfo = styled.div`
     height: 200px;
     flex:1;
+    align-items: center;
+    vertical-align: middle;
     border-top: 0.1rem solid #c5d5d7;
     width: 100%;
-    display: table-cell;
     position: relative;
-    vertical-align: middle;
     white-space:normal;
+
     @media screen and (max-width: 1080px) {
         flex: 1;
         min-width: 250px;
@@ -202,8 +195,11 @@ export const MLTableInfo = styled.div`
 `
 
 export const MLTableAdjust = styled.div`
+    height: 100%;
     text-align: center;
-    padding-top: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 export const MLButton = styled.button`
@@ -267,16 +263,35 @@ export const PoweredBy = styled.div`
     margin: 10px;
     position:absolute;
     bottom:0;
-    justify-content:left;
+    left:0;
 `
 
 export const PoweredByImage = styled.div`
     background-image: url(${props => props.img});
     background-size: contain;
     background-repeat: no-repeat;
-    width: 50px;
-    height: 10px;
+    width: 65px;
+    height: 12px;
     text-decoration: none;
+    padding: 5px;
+`
+
+export const Setting = styled.div`
+    margin: 10px;
+    position:absolute;
+    bottom:0;
+    right:0;
+    justify-content:right;
+`
+
+export const SettingImage = styled.div`
+    background-image: url(${props => props.img});
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 12px;
+    text-decoration: none;
+    cursor: pointer;
     padding: 5px;
 `
 
