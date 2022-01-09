@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { CatalogWrap, CatalogWrapTitle, CP4DButton, CatalogContentsWrap, CatalogTable, CatalogWrapper, CatalogLink, 
-         CatalogItem, CatalogPicture, CatalogName } from './Catalog_element'
+         CatalogItem, CatalogPicture, CatalogName, CP4DCreateButton } from './Catalog_element'
 
 export class Catalog extends Component {
     
@@ -16,15 +16,19 @@ export class Catalog extends Component {
         }
     }
 
-    async componentDidMount() {
-        
-    }
-
     makeProjectAlert() {
         window.alert("프로젝트를 먼저 만들어주세요.");
     }
-    
+
+    handleChange = event => {
+        this.setState({ project_name: event.target.value })
+    }
+
     async createWSProject() {
+        this.setState({
+            project_availability: false
+        })
+        
         const userCredential = { 
             uname: this.state.username, 
             upassword: this.state.userpassword
@@ -59,7 +63,7 @@ export class Catalog extends Component {
         try {
             const response_values = await response.json()
             const url_part = (response_values.location).substring(3)
-            console.log(url_part)
+            window.alert("성공적으로 프로젝트가 생성되었습니다.\nProject Title: " + this.state.project_name)
     
             this.setState({
                 project_availability: true,
@@ -72,6 +76,7 @@ export class Catalog extends Component {
     }
 
     render() {
+        console.log(this.state.project_name)
         return (
             <>
                 <CatalogWrap>
@@ -88,10 +93,6 @@ export class Catalog extends Component {
                                 CP4D 프로젝트 바로가기
                             </CP4DButton>
                         }
-                        
-                        
-                        
-
                     </CatalogWrapTitle>
                     <CatalogContentsWrap>
                         <CatalogTable>
@@ -160,7 +161,12 @@ export class Catalog extends Component {
                                 </tr>
                             </tbody>
                         </CatalogTable>
+                        <input value={this.state.project_name} onChange={this.handleChange}/>
+                        <CP4DCreateButton onClick={() => {this.createWSProject()}} >
+                            CP4D 프로젝트 만들기
+                        </CP4DCreateButton>
                     </CatalogContentsWrap>
+                    
                 </CatalogWrap>
             </>
         )

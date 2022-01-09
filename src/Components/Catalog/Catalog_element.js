@@ -46,10 +46,39 @@ export const CP4DButton = styled.button`
 
 `
 
+export const CP4DCreateButton = styled.button`
+    background: #1c5c9c;
+    white-space: nowrap;
+    color: #fff;
+    height: 40px;
+    font-size: 13.5px;
+    line-height: 25px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 8px;
+    float: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &:hover {
+        transition: all 0.3s ease-out;
+        border: none;
+        background: #194978;
+    }
+    @media screen and (max-width: 1080px) {
+        width: 100%;
+    }
+    @media screen and (max-width: 591px) {
+        width: 100%;
+    }
+
+`
+
 export const CatalogContentsWrap = styled.div`
     padding: 25px 35px 35px 35px;
-    display: flex;
-    flex-wrap: wrap;
 `
 
 export const CatalogTable = styled.table`
