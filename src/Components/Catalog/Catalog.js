@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { CatalogWrap, CatalogWrapTitle, CP4DButton, CatalogContentsWrap, CatalogTable, CatalogWrapper, CatalogLink, 
          CatalogItem, CatalogPicture, CatalogName, CP4DCreateButton } from './Catalog_element'
+import CatalogModal from './CatalogModal'
 
 export class Catalog extends Component {
     
@@ -10,28 +11,28 @@ export class Catalog extends Component {
           project_availability: false,
           project_name: "API as Project", 
           username: "shan",
-          userpassword: "passw0rd",
           project_url:"",
-          addthis: "projects/f7d8d0dd-d3d2-495a-b13c-00b97f70d563"
         }
     }
 
     makeProjectAlert() {
         window.alert("프로젝트를 먼저 만들어주세요.");
     }
-
-    handleChange = event => {
+    
+    handleProjectNameChange = event => {
         this.setState({ project_name: event.target.value })
     }
-
+    handleUsernameChange = event => {
+        this.setState({ username: event.target.value })
+    }
+    
     async createWSProject() {
         this.setState({
             project_availability: false
         })
         
         const userCredential = { 
-            uname: this.state.username, 
-            upassword: this.state.userpassword
+            uname: this.state.username
         }
 
         const options = {
@@ -161,10 +162,16 @@ export class Catalog extends Component {
                                 </tr>
                             </tbody>
                         </CatalogTable>
-                        <input value={this.state.project_name} onChange={this.handleChange}/>
-                        <CP4DCreateButton onClick={() => {this.createWSProject()}} >
+                        <CP4DCreateButton>
                             CP4D 프로젝트 만들기
                         </CP4DCreateButton>
+                        <CatalogModal 
+                            project_name = { this.state.project_name }
+                            username = { this.state.username }
+                            projecthandleChange = { this.handleProjectNameChange }
+                            usernameChange = { this.handleUsernameChange }
+                            createProject = { this.createWSProject.bind(this) }
+                        />
                     </CatalogContentsWrap>
                     
                 </CatalogWrap>
