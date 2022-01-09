@@ -74,11 +74,10 @@ export const CatalogTable = styled.table`
         font-weight: bold;
     }
     thead tr th {
-        display: flex;
-        font-size: 1.35rem;
+        font-size: 1.0rem;
         font-weight: bold;
         line-height: 50px;
-        padding: 5px 0 5px 20px;
+        text-align: center;
     }
     tbody tr td  {
         display: flex;

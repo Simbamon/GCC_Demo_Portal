@@ -10,7 +10,7 @@ export class Prediction extends Component {
         super(props)
         this.state = {
           loading: true,
-          prediction_value: "-",
+          prediction_value: "Click the predict button below",
           probability_a: "-",
           probability_b: "-",
           model_endpoint: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/fc896166-3494-424f-8837-4fe257441deb/predictions?version=2022-01-07",
@@ -28,43 +28,38 @@ export class Prediction extends Component {
     }
     
     async getPredictionValue() {
-        const get_token = await fetch('/watsonml/wmltoken')
-        const received_token = await get_token.json()
-        const wkc_token = received_token.token
-
-        const data = { token: wkc_token, 
-                       url: this.state.model_endpoint,
-                       input_data: [this.state.payload]
-                        // input_data: [
-                        //     {
-                        //         "fields": ["CheckingStatus", "LoanDuration", "CreditHistory", "LoanPurpose", "LoanAmount", "ExistingSavings",
-                        //             "EmploymentDuration", "InstallmentPercent", "Sex", "OthersOnLoan", "CurrentResidenceDuration",
-                        //             "OwnsProperty", "Age", "InstallmentPlans", "Housing", "ExistingCreditsCount", "Job", "Dependents",
-                        //             "Telephone", "ForeignWorker"],
-                        //         "values": [
-                        //         ["no_checking", 13, "credits_paid_to_date", "car_new", 1343, "100_to_500", "1_to_4", 2, "female", "none", 3,
-                        //         "savings_insurance", 46, "none", "own", 2, "skilled", 1, "none", "yes"]
-                        //     ]
-                        //     }
-                        // ]
-                     }
-        console.log(data)
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+        if(this.state.model_endpoint === ""){
+            this.setState({
+                prediction_value: "Please insert model enpoint",
+            })
         }
-
-        const response = await fetch('/watsonml/predict', options)
-        const response_values = await response.json()
-        this.setState({
-            prediction_value: response_values.predictions[0].values[0][0],
-            probability_a: Number((response_values.predictions[0].values[0][1][0] * 100).toFixed(2)),
-            probability_b: Number((response_values.predictions[0].values[0][1][1] * 100).toFixed(2)),
-            loading: false,
-        })
+        else{
+            const get_token = await fetch('/watsonml/wmltoken')
+            const received_token = await get_token.json()
+            const wkc_token = received_token.token
+    
+            const data = { token: wkc_token, 
+                           url: this.state.model_endpoint,
+                           input_data: [this.state.payload]
+                         }
+            console.log(data)
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+    
+            const response = await fetch('/watsonml/predict', options)
+            const response_values = await response.json()
+            this.setState({
+                prediction_value: response_values.predictions[0].values[0][0],
+                probability_a: Number((response_values.predictions[0].values[0][1][0] * 100).toFixed(2)),
+                probability_b: Number((response_values.predictions[0].values[0][1][1] * 100).toFixed(2)),
+                loading: false,
+            })
+        }
     }
     
 
@@ -282,7 +277,7 @@ export class Prediction extends Component {
                                                 <MLTableAdjust>
                                                     {this.state.loading ? 
                                                         <div>
-                                                            <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", paddingBottom:"10px", lineHeight: "1.8rem"}}>Click the predict button below</p>
+                                                            <p style={{color: "#263438", fontSize: "1.0rem", fontWeight: "bold", paddingBottom:"10px", lineHeight: "1.8rem"}}>{this.state.prediction_value}</p>
                                                             <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Prediction: -</p>
                                                             <p style={{color: "grey", fontSize: "0.8rem", lineHeight: "1.35rem"}}>Probability: -</p>
                                                         </div> 
