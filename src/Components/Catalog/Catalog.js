@@ -12,11 +12,20 @@ export class Catalog extends Component {
           project_name: "API as Project", 
           username: "shan",
           project_url:"",
+          show_modal: false,
         }
     }
 
     makeProjectAlert() {
         window.alert("프로젝트를 먼저 만들어주세요.");
+    }
+
+    modalOpen() {
+        this.setState({ show_modal: true })
+    }
+
+    modalClose() {
+        this.setState({ show_modal: false })
     }
     
     handleProjectNameChange = event => {
@@ -72,7 +81,7 @@ export class Catalog extends Component {
             })
         } catch (error) {
             console.log(error)
-            window.alert("사용하시려는 이름은 이미 존재합니다.");
+            window.alert("오류:\n1. 사용하시려는 프로젝트 이름은 이미 존재합니다.\n2. 유저 아이디가 존재하지 않습니다.");
         }        
     }
 
@@ -162,12 +171,14 @@ export class Catalog extends Component {
                                 </tr>
                             </tbody>
                         </CatalogTable>
-                        <CP4DCreateButton>
+                        <CP4DCreateButton onClick={() => {this.modalOpen()}}>
                             CP4D 프로젝트 만들기
                         </CP4DCreateButton>
                         <CatalogModal 
+                            show_modal = {this.state.show_modal}
                             project_name = { this.state.project_name }
                             username = { this.state.username }
+                            modalClose = { this.modalClose.bind(this) }
                             projecthandleChange = { this.handleProjectNameChange }
                             usernameChange = { this.handleUsernameChange }
                             createProject = { this.createWSProject.bind(this) }
