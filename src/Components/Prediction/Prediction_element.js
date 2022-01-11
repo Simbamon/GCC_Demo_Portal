@@ -310,3 +310,25 @@ export const ApproveTextLine = styled.span`
     border-bottom:5px solid #079178;
     padding-bottom:13px;
 `
+
+export const ModalOverlay = styled.div`
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .7);
+    z-index: 1000;
+`
+
+export const ModalBackground = styled.div`
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    background: #FFF;
+    z-index: 1000;
+`

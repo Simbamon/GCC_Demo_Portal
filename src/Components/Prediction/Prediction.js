@@ -3,6 +3,7 @@ import { PredictionWrap, PredictionTitle, ContentsWrap, PredicitionProfileWrap, 
          ProfileBox, ProfilePic, PredictionTable, TableInfo, MLTable, MLTableAdjust, MLTableInfo, MLButton, 
          OpenscaleImage, PoweredByImage, PoweredBy, Setting, SettingImage, CommentBox, ApproveTextLine, SubmitButton } from './Prediction_element'
 import { Link } from 'react-router-dom'
+import PredictionModal from './PredictionModal'
 
 export class Prediction extends Component {
     
@@ -14,8 +15,26 @@ export class Prediction extends Component {
           probability_a: "-",
           probability_b: "-",
           model_endpoint: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/fc896166-3494-424f-8837-4fe257441deb/predictions?version=2022-01-07",
-          payload: {}, 
+          payload: {},
+          show_modal: false,
+          username: "shan",
         }
+    }
+
+    modalOpen() {
+        this.setState({ show_modal: true })
+    }
+
+    modalClose() {
+        this.setState({ show_modal: false })
+    }
+    
+    handleMLEndpointChange = event => {
+        this.setState({ model_endpoint: event.target.value })
+    }
+
+    handleUsernameChange = event => {
+        this.setState({ username: event.target.value })
     }
 
     async componentDidMount() {
@@ -29,36 +48,47 @@ export class Prediction extends Component {
     
     async getPredictionValue() {
         if(this.state.model_endpoint === ""){
-            this.setState({
-                prediction_value: "Please insert model enpoint",
-            })
+            window.alert("모델이 없습니다. 모델을 설정에서 넣어주세요.")
         }
         else{
-            const get_token = await fetch('/watsonml/wmltoken')
-            const received_token = await get_token.json()
-            const wkc_token = received_token.token
+            try {
+                const usernameCredential = { username: this.state.username }
+                const tokenCredential = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(usernameCredential)
+                }
+                const get_token = await fetch('/watsonml/wmltoken', tokenCredential)
+                const received_token = await get_token.json()
+                const wkc_token = received_token.token
     
-            const data = { token: wkc_token, 
-                           url: this.state.model_endpoint,
-                           input_data: [this.state.payload]
-                         }
-            console.log(data)
-            const options = {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
+                const data = { token: wkc_token, 
+                    url: this.state.model_endpoint,
+                    input_data: [this.state.payload]
+                    }
+                // console.log(data)
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+        
+                const response = await fetch('/watsonml/predict', options)
+                const response_values = await response.json()
+                this.setState({
+                    prediction_value: response_values.predictions[0].values[0][0],
+                    probability_a: Number((response_values.predictions[0].values[0][1][0] * 100).toFixed(2)),
+                    probability_b: Number((response_values.predictions[0].values[0][1][1] * 100).toFixed(2)),
+                    loading: false,
+                })
+            } catch (error) {
+                console.log(error)
+                window.alert("오류: 유저네임이나 ML 엔드포인트를 다시한번 확인해주세요.")
             }
-    
-            const response = await fetch('/watsonml/predict', options)
-            const response_values = await response.json()
-            this.setState({
-                prediction_value: response_values.predictions[0].values[0][0],
-                probability_a: Number((response_values.predictions[0].values[0][1][0] * 100).toFixed(2)),
-                probability_b: Number((response_values.predictions[0].values[0][1][1] * 100).toFixed(2)),
-                loading: false,
-            })
         }
     }
     
@@ -293,7 +323,7 @@ export class Prediction extends Component {
                                                     <PoweredBy>
                                                         <PoweredByImage img = {require('../../images/ibm.png').default} alt='powered by ibm'></PoweredByImage>
                                                     </PoweredBy>
-                                                    <Setting>
+                                                    <Setting onClick={() => {this.modalOpen()}}>
                                                         <SettingImage img = {require('../../images/setting.png').default} alt='setting'></SettingImage>
                                                     </Setting>  
                                                 </div>
@@ -330,6 +360,14 @@ export class Prediction extends Component {
                             <SubmitButton>Submit</SubmitButton>           
                         </PredicitionAIWrap>    
                     </ContentsWrap>
+                    <PredictionModal 
+                        show_modal = {this.state.show_modal}
+                        username = { this.state.username }
+                        model_endpoint = { this.state.model_endpoint }
+                        modalClose = { this.modalClose.bind(this) }
+                        MLEndpointChange = { this.handleMLEndpointChange }
+                        usernameChange = { this.handleUsernameChange }
+                    />
                 </PredictionWrap>
             </>
         )
