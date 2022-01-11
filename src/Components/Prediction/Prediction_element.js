@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Close }  from '@material-ui/icons'
 
 export const PredictionWrap = styled.div`
     min-height: calc(100vh - 60px);
@@ -326,9 +327,31 @@ export const ModalOverlay = styled.div`
 
 export const ModalBackground = styled.div`
     position: fixed;
+    display: flex;
     width: 50%;
     height: 50%;
     margin: auto;
     background: #FFF;
     z-index: 1000;
+    border-radius: 10px;
+    box-shadow: 13px 15px 55px -13px rgba(0,0,0,0.26);
+`
+
+export const XModalButton = styled(Close)`
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    z-index: 10;
+`
+
+export const ModalImage = styled.div`
+    background-image: url(${props => props.img});
+    width: 50%;
+    min-height: 100%;
+    border-radius: 10px 0 0 10px;
+    background-size: 100%;
 `
