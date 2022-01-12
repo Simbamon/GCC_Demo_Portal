@@ -328,6 +328,7 @@ export const ModalOverlay = styled.div`
 export const ModalBackground = styled.div`
     position: fixed;
     display: flex;
+    flex-wrap: wrap;
     width: 50%;
     height: 50%;
     margin: auto;
@@ -335,6 +336,11 @@ export const ModalBackground = styled.div`
     z-index: 1000;
     border-radius: 10px;
     box-shadow: 13px 15px 55px -13px rgba(0,0,0,0.26);
+    @media screen and (max-width: 591px) {
+        display: flex;
+        width: 50%;
+        height: 80%;
+    }
 `
 
 export const XModalButton = styled(Close)`
@@ -346,12 +352,44 @@ export const XModalButton = styled(Close)`
     height: 30px;
     padding: 0;
     z-index: 10;
+    @media screen and (max-width: 591px) {
+       color: white;
+    }
 `
 
-export const ModalImage = styled.div`
-    background-image: url(${props => props.img});
-    width: 50%;
+export const ModalImage = styled.img`
+    min-width: 50%;
     min-height: 100%;
+    width: auto;
+    height: auto;
     border-radius: 10px 0 0 10px;
     background-size: 100%;
+    background-repeat: no-repeat;
+    flex: 1 0 50%;
+    @media screen and (max-width: 591px) {
+        flex: 100%;
+        min-width: 100%;
+        min-height: 50%;
+        border-radius: 10px 10px 0 0;
+    }
+`
+
+export const ModalContents = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width:50%;
+    @media screen and (max-width: 591px) {
+       width:100%;
+    }
+`
+
+export const ModalInput = styled.input`
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border-radius: 20px;
 `
