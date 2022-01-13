@@ -331,6 +331,7 @@ export const ModalBackground = styled.div`
     flex-wrap: wrap;
     width: 50%;
     height: 50%;
+    min-height: 300px;
     margin: auto;
     background: #FFF;
     z-index: 1000;
@@ -338,7 +339,7 @@ export const ModalBackground = styled.div`
     box-shadow: 13px 15px 55px -13px rgba(0,0,0,0.26);
     @media screen and (max-width: 591px) {
         display: flex;
-        width: 50%;
+        width: 80%;
         height: 80%;
     }
 `
@@ -392,4 +393,27 @@ export const ModalInput = styled.input`
     margin-bottom: 15px;
     box-sizing: border-box;
     border-radius: 20px;
+`
+
+export const ModalButton = styled.button`
+    background: #1c5c9c;
+    white-space: nowrap;
+    color: #fff;
+    height: 45px;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    border-radius: 8px;
+    margin-top: 20px;
+    float: right;
+
+    &:hover {
+        transition: all 0.3s ease-out;
+        border: none;
+        background: #194978;
+    }
+
 `
