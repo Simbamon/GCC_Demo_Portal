@@ -21,7 +21,7 @@ export class Sidebar extends Component {
                                     <ProfilePic img = {require('../../images/profile_pic.png').default} alt='profile photo'></ProfilePic>
                                 </div>
                                 <div style={{paddingTop: "5px", paddingBottom: "15px", textAlign: "center" }}>
-                                    <p style={{color: "white", fontSize: "0.8rem", marginBottom:"2px", lineHeight: "1.0rem"}}>{t('navbar.1')}</p>
+                                    <p style={{color: "white", fontSize: "0.8rem", marginBottom:"2px", lineHeight: "1.0rem"}}>John Doe</p>
                                     <p style={{color: "#c5c7c9", fontSize: "0.6rem", lineHeight: "0.8rem"}}>{t('sidebar.4')}</p>
                                 </div>
                                 
@@ -31,7 +31,7 @@ export class Sidebar extends Component {
                                     <SidebarListItem>
                                         <div style= {{display: "flex", alignItems: "center"}}>
                                             <Dashboard style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                            {t('sidebar.1')}
+                                            Dashboard
                                         </div>
                                         <KeyboardArrowRight />
                                     </SidebarListItem>
@@ -40,14 +40,14 @@ export class Sidebar extends Component {
                                     <SidebarListItem>
                                         <div style= {{display: "flex", alignItems: "center"}}>
                                             <Cloud style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                            IBM CP4D 바로가기
+                                            IBM Cloud Pak for Data
                                         </div>
                                     </SidebarListItem>  
                                 </a>
                                 <SidebarListItem>
                                     <div style= {{display: "flex", alignItems: "center"}}>
                                         <BarChart style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                        Cognos Analytics 바로가기
+                                        Cognos Analytics
                                     </div>
                                 </SidebarListItem>
                                 {/*This is for local file execution command */}
@@ -61,7 +61,7 @@ export class Sidebar extends Component {
                                     <SidebarListItem>
                                         <div style= {{display: "flex", alignItems: "center"}}>
                                             <LibraryBooks style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                            카탈로그
+                                            Data Catalog
                                         </div>
                                         <KeyboardArrowRight />
                                     </SidebarListItem>
@@ -70,7 +70,7 @@ export class Sidebar extends Component {
                                     <SidebarListItem to="/prediction">
                                         <div style= {{display: "flex", alignItems: "center"}}>
                                             <DesktopMac style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                            시스템 관리
+                                            System Setting
                                         </div>
                                         <KeyboardArrowRight />
                                     </SidebarListItem>
@@ -79,7 +79,7 @@ export class Sidebar extends Component {
                                     <SidebarListItem to="/prediction">
                                         <div style= {{display: "flex", alignItems: "center"}}>
                                             <Settings style = {{paddingRight: "5px", paddingLeft: "10px"}}/>
-                                            사내 결재 시스템
+                                            Authorization Setting
                                         </div>
                                         <KeyboardArrowRight />
                                     </SidebarListItem>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const AssetDiv = styled.div`
     background: white;
-    padding: 0.5rem calc((100vw - 1300px) / 2);
+    padding: 0.5rem calc((100vw - 1500px) / 2);
     
     //Padding to resize the window
 `
@@ -103,6 +103,7 @@ export const AbtSection = styled.div`
 
 export const UpdateSection = styled.div`
     padding: 20px;
+    width: 18%;
 `
 
 export const AbtInfoSection = styled.div`
@@ -125,8 +126,9 @@ export const Dates = styled.p`
 
 export const AbtTable = styled.table`
     //Change here for size
-    width: 720px;
+    width: 900px;
     font-size: 0.95rem;
+    line-height: 1.25rem;
     color: #222222;
     border-collapse: collapse;
     tbody tr td:first-child {
@@ -175,6 +177,7 @@ export const ColumnInfoTable = styled.table`
         padding: 3px 15px;
         border-top: 1px solid #c8c8c8;
         border-bottom: 1px solid #c8c8c8;
+        line-height: 20px;
         height: 39px;
     }
   margin-bottom: 50px;

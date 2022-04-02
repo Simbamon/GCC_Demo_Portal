@@ -21,9 +21,9 @@ export class Asset_list extends Component {
         const get_token = await fetch('/wkc/token')
         const received_token = await get_token.json()
         const wkc_token = received_token.token
-
+        
         const wkc_data = { 
-                            token: wkc_token
+                            wkc_token
                          }
         const options = {
             method: 'POST',
@@ -33,9 +33,9 @@ export class Asset_list extends Component {
             body: JSON.stringify(wkc_data)
         }
 
-        const catalog_info_response = await fetch('/wkc/getcataloginfo/64c25f35-eefb-4172-b6c3-38d8492fb4bb', options)
+        const catalog_info_response = await fetch('/wkc/getcataloginfo/c315ddd1-5711-46c2-b6e5-e919c089817d', options)
         const catalog_info = await catalog_info_response.json()
-        const meta_response = await fetch('/wkc/getassetlistbyreview/64c25f35-eefb-4172-b6c3-38d8492fb4bb', options)
+        const meta_response = await fetch('/wkc/getassetlistbyreview/c315ddd1-5711-46c2-b6e5-e919c089817d', options)
         const data_meta = await meta_response.json()
         const data_meta_array = data_meta.results
         const catalog_name = catalog_info.entity.name
@@ -55,9 +55,10 @@ export class Asset_list extends Component {
                         const review_star = data_meta_array[i].metadata.rating
                         const review_number = data_meta_array[i].metadata.total_ratings
                         const asset_type = data_meta_array[i].metadata.asset_type 
-                        const time = time_data.getFullYear() + "년 " +
-                                     (time_data.getMonth() + 1) + "월 " +
-                                     time_data.getDate() + "일"
+                        const time = (time_data.getMonth() + 1) + "/" +
+                                     time_data.getDate() + "/" +
+                                     time_data.getFullYear()
+                                     
                         const obj = {
                             name: name,
                             description: description,
@@ -92,23 +93,23 @@ export class Asset_list extends Component {
                         <CatalogName>{this.state.catalog_name}</CatalogName>
                         <div style={{ display: "table" }}>
                             <SearchBar>
-                                <p style={{paddingLeft: "5px", color: "grey"}}>원하는 데이터를 입력하세요 (비지니스 텀, 태그로도 검색 가능)</p>
+                                <p style={{paddingLeft: "5px", color: "grey"}}>What data are you looking for? (can search by business terms, tags, etc.)</p>
                             </SearchBar>
                             <div style={{display: "table-cell", verticalAlign: "middle", backgroundColor: "#25292C", margin:"0px", width: "3%", cursor: "pointer"}}>
                                 <Search style = {{color: "white", fontSize: "2rem", margin: "auto"}} />
                             </div>
                         </div>
                         <FilterBox>
-                            <p style={{fontSize: "0.9rem", marginTop: "15px"}}>전체 <span style={{fontWeight: "bold", fontSize: "0.9rem"}}>{this.state.total_number_of_asset}</span>건의 데이터가 있습니다.</p>
+                            <p style={{fontSize: "0.9rem", marginTop: "15px"}}> <span style={{fontWeight: "bold", fontSize: "0.9rem"}}>{this.state.total_number_of_asset}</span> Results</p>
                             <div style={{display: "flex", marginTop: "15px"}}>
                                 
                                 <SortBy>
                                     <div style = {{display: "table-cell", verticalAlign: "middle"}}>
-                                        <p style = {{fontSize: "0.85rem", lineHeight: "1rem"}}>정렬: </p>
+                                        <p style = {{fontSize: "0.85rem", lineHeight: "1rem"}}>Sort by: </p>
                                     </div>
                                     <SortByBox>
                                         <div style = {{display: "table-cell", verticalAlign: "middle"}}>
-                                            <p style = {{fontSize: "0.85rem", lineHeight: "0.85rem"}}>평가 높은순</p>
+                                            <p style = {{fontSize: "0.85rem", lineHeight: "0.85rem"}}>Highest Ratings</p>
                                         </div>
                                         <div style = {{display: "table-cell", verticalAlign: "middle"}}>
                                             <ExpandMore style = {{paddingLeft: "5px", fontSize: "1.1rem"}} />
@@ -121,7 +122,7 @@ export class Asset_list extends Component {
                         </FilterBox>
                     </AssetListTop>
 
-                    {this.state.asset_list_info.map(info => info.name === "마케팅이력 데이터" ? (
+                    {this.state.asset_list_info.map(info => info.name === "2022 Client Loan Applications Data" ? (
                             <div>
                             <AssetListTable>
                                     <tbody>
@@ -133,7 +134,7 @@ export class Asset_list extends Component {
                                                     </Link>
                                                     <AssetTitleCatalogName>{this.state.catalog_name}</AssetTitleCatalogName>
                                                     <CheckCircle style = {{paddingRight: "2px", paddingLeft: "10px", color: "#528AEF", fontSize: "0.9rem", marginTop: "auto", marginBottom: "auto"}} />
-                                                    <ApprovedText>사용 승인 완료</ApprovedText>
+                                                    <ApprovedText>Approved to use</ApprovedText>
                                                 </div>
                                             </td>
                                             <td>
@@ -148,13 +149,13 @@ export class Asset_list extends Component {
                                                 <AssetSummary>{info.description}</AssetSummary>
                                             </td>
                                             <td rowspan="2" style={{borderLeft: "1px solid grey"}}>
-                                                <AssetOwner style= {{marginBottom: "1px", marginTop: "3px"}}>마지막 업데이트:</AssetOwner>
+                                                <AssetOwner style= {{marginBottom: "1px", marginTop: "3px"}}>Updated:</AssetOwner>
                                                 <LastUpdated style= {{marginBottom: "3px"}}>{info.last_updated}</LastUpdated>
-                                                <AssetOwner style= {{marginBottom: "1px"}}>평가: </AssetOwner>
+                                                <AssetOwner style= {{marginBottom: "1px"}}>Reviews: </AssetOwner>
                                                 <LastUpdated style= {{marginBottom: "3px"}}>
                                                     <div style= {{display: "flex", alignItems: "center"}}>
                                                     <Rating defaultValue={info.review_star} precision={0.1} readOnly size="small" style={{ color: '#565656' }}/>
-                                                    <ReviewAmounts>{info.review_number}개의 리뷰</ReviewAmounts>
+                                                    <ReviewAmounts>{info.review_number} review</ReviewAmounts>
                                                     </div>
                                                 </LastUpdated>
                                             </td>
@@ -162,7 +163,7 @@ export class Asset_list extends Component {
                                         <tr>
                                             <td>
                                                 <div style={{display: "flex"}}>
-                                                    <AssetOwner style={{padding: "2px"}}>담당자:</AssetOwner>
+                                                    <AssetOwner style={{padding: "2px"}}>Data Owner:</AssetOwner>
                                                     <AssetOwnerName>Admin</AssetOwnerName>
                                                 </div>
                                             </td>
@@ -182,7 +183,7 @@ export class Asset_list extends Component {
                                                     </Link>
                                                     <AssetTitleCatalogName>{this.state.catalog_name}</AssetTitleCatalogName>
                                                     <Cancel style = {{paddingRight: "2px", paddingLeft: "10px", color: "#F64A7A", fontSize: "0.9rem", marginTop: "auto", marginBottom: "auto"}} />
-                                                    <ApprovedText style = {{color: "#F64A7A"}}>사용 승인 필요</ApprovedText>
+                                                    <ApprovedText style = {{color: "#F64A7A"}}>Require Approval</ApprovedText>
                                                 </div>
                                             </td>
                                             <td>
@@ -197,13 +198,13 @@ export class Asset_list extends Component {
                                                 <AssetSummary>{info.description}</AssetSummary>
                                             </td>
                                             <td rowspan="2" style={{borderLeft: "1px solid grey"}}>
-                                                <AssetOwner style= {{marginBottom: "1px", marginTop: "3px"}}>마지막 업데이트:</AssetOwner>
+                                                <AssetOwner style= {{marginBottom: "1px", marginTop: "3px"}}>Updated:</AssetOwner>
                                                 <LastUpdated style= {{marginBottom: "3px"}}>{info.last_updated}</LastUpdated>
-                                                <AssetOwner style= {{marginBottom: "1px"}}>평가: </AssetOwner>
+                                                <AssetOwner style= {{marginBottom: "1px"}}>Reviews: </AssetOwner>
                                                 <LastUpdated style= {{marginBottom: "3px"}}>
                                                     <div style= {{display: "flex", alignItems: "center"}}>
                                                     <Rating defaultValue={info.review_star} precision={0.1} readOnly size="small" style={{ color: '#565656' }}/>
-                                                    <ReviewAmounts>{info.review_number}개의 리뷰</ReviewAmounts>
+                                                    <ReviewAmounts>{info.review_number} review</ReviewAmounts>
                                                     </div>
                                                 </LastUpdated>
                                             </td>
@@ -211,7 +212,7 @@ export class Asset_list extends Component {
                                         <tr>
                                             <td>
                                                 <div style={{display: "flex"}}>
-                                                    <AssetOwner style={{padding: "2px"}}>담당자:</AssetOwner>
+                                                    <AssetOwner style={{padding: "2px"}}>Data Owner:</AssetOwner>
                                                     <AssetOwnerName>Admin</AssetOwnerName>
                                                 </div>
                                             </td>
@@ -225,11 +226,11 @@ export class Asset_list extends Component {
                     )}
 
                     <TableBottom>
-                        <p style = {{fontSize: "0.9rem"}}>총 {this.state.total_number_of_asset}건 중 {this.state.total_number_of_asset}건의 데이터를 보여줌</p>
+                        <p style = {{fontSize: "0.9rem"}}>Showing {this.state.total_number_of_asset} of {this.state.total_number_of_asset} results</p>
                         <ListNumber>
-                            <PrevNextList>이전</PrevNextList>
+                            <PrevNextList>Prev</PrevNextList>
                             <TableNumberList>1</TableNumberList>
-                            <PrevNextList>다음</PrevNextList>
+                            <PrevNextList>Next</PrevNextList>
                         </ListNumber>
                     </TableBottom>
                 </AssetListDiv>

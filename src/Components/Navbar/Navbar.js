@@ -14,7 +14,7 @@ export class Navbar extends Component {
                     <Link to="/dashboard" style={{ textDecoration: 'none' }}>
                         <NavLink >
                             <LogoPic img = {require('../../images/logo.png').default} alt='Logo'></LogoPic>
-                            <NavTitle>데이터 분석 플랫폼</NavTitle>
+                            <NavTitle>DATA PLATFORM</NavTitle>
                         </NavLink>
                     </Link>
 
@@ -34,7 +34,7 @@ export class Navbar extends Component {
                                 <ProfilePic img = {require('../../images/profile_pic.png').default} alt='discovery workshop'></ProfilePic>
                                 <ProfileName>
                                     <div style = {{display: "table-cell", verticalAlign: "middle"}}>
-                                        <p style = {{fontSize: "0.85rem", lineHeight: "0.85rem"}}>{t('navbar.1')}</p>
+                                        <p style = {{fontSize: "0.85rem", lineHeight: "0.85rem"}}>John Doe</p>
                                         <p style = {{fontSize: "0.65rem", lineHeight: "0.65rem"}}>Data Engineer</p>
                                     </div>
                                     <div style = {{display: "table-cell", verticalAlign: "middle"}}>

@@ -14,10 +14,10 @@ export class Prediction extends Component {
           prediction_value: "Click the predict button below",
           probability_a: "-",
           probability_b: "-",
-          model_endpoint: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/fc896166-3494-424f-8837-4fe257441deb/predictions?version=2022-01-07",
+          model_endpoint: "https://cpd-zen.apps.da.tech.local/ml/v4/deployments/c91bdbb2-8c5f-4d36-a64e-80bf0159c977/predictions?version=2022-02-16",
           payload: {},
           show_modal: false,
-          username: "shan",
+          username: "admin",
         }
     }
 

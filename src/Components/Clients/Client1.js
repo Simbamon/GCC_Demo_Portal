@@ -34,9 +34,9 @@ export class Client1 extends Component {
         const wkc_token = received_token.token
 
         const wkc_data = { 
-                            token: wkc_token, 
-                            catalog_id: "64c25f35-eefb-4172-b6c3-38d8492fb4bb",
-                            asset_id: "85bdfaed-d1c3-4d27-b508-696a72dbc732"
+                            wkc_token: wkc_token, 
+                            catalog_id: "c315ddd1-5711-46c2-b6e5-e919c089817d",
+                            asset_id: "7373d866-a602-469e-b537-c9fccd4bf7b9"
                          }
         const options = {
             method: 'POST',
@@ -46,7 +46,7 @@ export class Client1 extends Component {
             body: JSON.stringify(wkc_data)
         }
 
-        const catalog_info_response = await fetch('/wkc/getcataloginfo/64c25f35-eefb-4172-b6c3-38d8492fb4bb', options)
+        const catalog_info_response = await fetch('/wkc/getcataloginfo/c315ddd1-5711-46c2-b6e5-e919c089817d', options)
         const catalog_info = await catalog_info_response.json()
         const meta_response = await fetch('/wkc/getassetmeta', options)
         const data_meta = await meta_response.json()
@@ -81,7 +81,8 @@ export class Client1 extends Component {
             let year = dateObject.getFullYear()
             let date = dateObject.getDate()
 
-            return `${year}년 ${month}월 ${date}일`
+            // return `${month}/${date}/${year}`
+            return `April ${date}, ${year}`
         }
 
         const last_updated_time = timeConverter(asset_meta2.last_update_time)
@@ -117,8 +118,8 @@ export class Client1 extends Component {
         // const data_connection = await connection_response.json()
         // const connection_source = data_connection.entity
         // const connection_source_type = data_connection.entity.properties
-        this.setState({ connection_source: {"name": "Data Virtualization"},
-                        connection_source_type: {"database": "DV"}})
+        this.setState({ connection_source: {"name": "data-virtualization-v3"},
+                        connection_source_type: {"database": "Db2"}})
         
 
         // const review_response= await fetch('/wkc/getassetreview', options)
@@ -166,20 +167,20 @@ export class Client1 extends Component {
                                 {this.state.basic_info.name}
                                 <AssetTitleCatalogName>{this.state.catalog_name}</AssetTitleCatalogName>
                                 <CheckCircle style = {{paddingRight: "2px", paddingLeft: "10px", color: "#528AEF", fontSize: "1.1rem", marginTop: "auto", marginBottom: "auto"}} />
-                                <ApprovedText>사용 승인 완료</ApprovedText>
+                                <ApprovedText>Approved to use</ApprovedText>
                             </AssetTitleh1>
-                            <RequestButton>사용 신청</RequestButton>
+                            <RequestButton>Data Request</RequestButton>
                         </div>
                         <p>{this.state.basic_info.description}</p> 
                     </AssetTitleWrapper>
                 </AssetTitle>
                 
-                    <InfoText>데이터 정보</InfoText>
+                    <InfoText>About this Data</InfoText>
                     <AbtData>
                         <AbtSection>
                             <UpdateSection>
                             <p style={{fontSize: "1.0rem", color: "#565656"}}>
-                            마지막 업데이트
+                            Updated
                             </p>
                             <p style={{fontSize: "1.7rem", color: "#1c6387", fontWeight: "bold", marginTop: "1.2px", marginBottom: "1.2px"}}>
                             {this.state.last_update_time}
@@ -187,18 +188,18 @@ export class Client1 extends Component {
                             
                             <div style={{display: "flex", justifyContent: "space-between", marginTop: "7px"}}>
                                 <div>
-                                    <DateDescription>최신수정일자</DateDescription>
+                                    <DateDescription>Last Updated</DateDescription>
                                     <Dates>{this.state.last_update_time}</Dates>
                                 </div>
                                 <div>
-                                    <DateDescription>최신접근일자</DateDescription>
+                                    <DateDescription>Last Accessed</DateDescription>
                                     <Dates>{this.state.last_access_time}</Dates>
                                     
 
                                 </div>
                             </div>
                             <div style={{marginTop: "11px"}}>
-                                <DateDescription>공개일자 </DateDescription>
+                                <DateDescription>Date Created</DateDescription>
                                 <Dates>{this.state.create_time}</Dates>
                             </div>
                             
@@ -206,46 +207,47 @@ export class Client1 extends Component {
 
                             <AbtInfoSection>
                             <p style={{fontSize: "1rem", color: "#565656", fontWeight: "bold", paddingBottom: "15px"}}>
-                                데이터 개요
+                                Dataset Information
                             </p>
 
                             <AbtTable>
                                 <tbody>
                                     <tr>
-                                        <td>포맷</td>
+                                        <td>Format</td>
                                         <td>{this.state.data_format.mime_type}</td>
                                     </tr>
                                     <tr>
-                                        <td>태그</td>
-                                        <td>{this.state.basic_info.tags}</td>
+                                        <td>Tag</td>
+                                        <td>
+                                            {this.state.basic_info.tags}
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td>카테고리</td>
+                                        <td>Category</td>
                                         <td>{this.state.basic_info.asset_category}</td>
                                     </tr>
                                     <tr>
-                                        <td>용량</td>
-                                        <td>{this.state.basic_info.size / 1000} KB</td>
+                                        <td>Size</td>
+                                        <td>{this.state.basic_info.size / 1000} KB (Virtualized Data)</td>
                                     </tr>
                                 </tbody>
                             </AbtTable>
                             <p style={{fontSize: "1rem", color: "#565656", fontWeight: "bold", paddingBottom: "15px"}}>
-                                거버넌스 아티팩트
+                                Governance Artifact
                             </p>
                             <AbtTable>
                                 <tbody>
                                     <tr>
-                                        <td>비즈니스 용어</td>
+                                        <td>Business Term</td>
                                         <td>
-                                            Marketing Data
-                                            {/* {this.state.data_business_term.map((bizTerm, index) => 
+                                            {this.state.data_business_term.map((bizTerm, index) => 
                                             <span key={index}>
                                                 <span>{ (index ? ', ' : '') + bizTerm.term_display_name}</span>
-                                            </span>)} */}
+                                            </span>)}
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>정보 분류</td>
+                                        <td>Classfications</td>
                                         <td>{this.state.data_classification.map((classificate, index) => 
                                             <span key={index}>
                                                 <span>{ (index ? ', ' : '') + classificate.name}</span>
@@ -256,20 +258,20 @@ export class Client1 extends Component {
                                 </tbody>
                             </AbtTable>
                             <p style={{fontSize: "1rem", color: "#565656", fontWeight: "bold", paddingBottom: "15px"}}>
-                                데이터베이스 접속정보
+                                Database Connection Information
                             </p>
                             <AbtTable>
                                 <tbody>
                                     <tr>
-                                        <td>데이터 소스</td>
+                                        <td>DB Source</td>
                                         <td>{this.state.connection_source.name}</td>
                                     </tr>
                                     <tr>
-                                        <td>데이터 소스 유형</td>
+                                        <td>DB Source Type</td>
                                         <td><span style={{ textTransform: 'uppercase'}}>{this.state.connection_source_type.database}</span></td>
                                     </tr>
                                     <tr>
-                                        <td>접속 경로</td>
+                                        <td>DB Path</td>
                                         <td>{this.state.connection_path.connection_path}</td>
                                     </tr>
                                     
@@ -281,15 +283,15 @@ export class Client1 extends Component {
 
 
 
-                    <InfoText>데이터 컬럼 정보</InfoText>
+                    <InfoText>Dataset Column Information</InfoText>
                     
                     <ColumnInfoTable>
                         <thead>
                             <tr>
-                                <th>컬럼 이름</th>
-                                <th>비즈니스 용어</th>
-                                <th>태그</th>
-                                <th>설명</th>
+                                <th>Column Name</th>
+                                <th>Business Term</th>
+                                <th>Tag</th>
+                                <th>Description</th>
                             </tr>
                         </thead>
                         <tbody>
